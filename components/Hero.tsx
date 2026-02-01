@@ -13,21 +13,20 @@ function Hero() {
         <div className="w-1/2 flex flex-col gap-6">
 
           <h1 className="text-3xl font-fira text-white leading-snug">
-            Elias is a{" "}
-            <span className="text-primary">web designer</span>{" "}
-            and{" "}
-            <span className="text-primary">front-end developer</span>
+            Building intelligent web systems with{" "}
+            <span className="text-primary">Software Engineering{" "}<span className="text-white">&</span>{" "}GenAI</span>
           </h1>
 
           <p className="text-gray text-base max-w-md font-fira">
-            He crafts responsive websites where technologies
-            meet creativity
+            Full Stack Developer & GenAI enthusiast turning ideas into smart digital solutions.
           </p>
 
-          <button className="border border-primary text-white px-4 py-2 w-fit hover:bg-primary hover:text-white transition font-fira">
-            Contact me!!
-          </button>
 
+          
+          <button className="border border-primary text-white px-4 py-2 w-fit hover:bg-primary hover:text-white transition font-fira">
+            View Resume -{">"}
+          </button>
+          
         </div>
 
         {/* Right */}

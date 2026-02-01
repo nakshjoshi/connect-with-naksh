@@ -23,15 +23,13 @@ function AboutMe() {
         <div className="space-y-6 text-gray leading-relaxed">
 
           <p>
-            Hello, I’m Nakshatra! I’m a self-taught front-end developer.
-            I love building responsive websites and turning ideas into
-            modern web experiences.
+          Hello!, I’m Nakshatra Joshi, a software developer focused on building intelligent, scalable, and user-centric digital systems. My work spans full-stack development, backend engineering, and generative AI, with a strong emphasis on performance, reliability, and real-world usability.  
+          </p>
+          <p>
+          Currently pursuing a B.Tech in Computer Science & Design Engineering at RGIPT, I work on AI-driven applications, automation pipelines, and modern web platforms. I enjoy solving complex problems through clean code, efficient architectures, and continuous learning.
           </p>
 
-          <p>
-            I’m passionate about learning new technologies and
-            improving my craft every day.
-          </p>
+          
 
           <a
             href="/contact"
@@ -45,7 +43,7 @@ function AboutMe() {
               transition
             "
           >
-            Read more →
+            Connect with Me! -{">"}
           </a>
 
         </div>
@@ -55,7 +53,7 @@ function AboutMe() {
 
           {/* Image */}
           <img
-            src="/about.png"
+            src="about.png"
             alt="About"
             className="w-[280px] md:w-[340px]"
           />

@@ -32,7 +32,7 @@ export default function RootLayout({
       >
 
         <Navbar></Navbar>
-        <SocialBar></SocialBar>
+        {/* <SocialBar></SocialBar> */}
         {children}
         <Footer></Footer>
       </body>
