@@ -22,7 +22,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'experience', 'education', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'experience', 'education', 'beyond-coding', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset for better detection
       
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -57,7 +57,7 @@ const Navbar = () => {
             className="w-6 h-6"
           />
           <span className="text-white font-fira font-bold text-sm lg:text-base">
-            {isMobile ? "Naksh" : "Nakshatra Joshi"}
+            {"Nakshatra Joshi"}
           </span>
         </div>
 
@@ -66,15 +66,9 @@ const Navbar = () => {
           className="lg:hidden flex flex-col gap-1 w-6 h-6 justify-center items-center z-200 bg-background"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <span className={`block w-5 h-0.5 bg-gray transition-transform duration-200 ${
-            isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''
-          }`}></span>
-          <span className={`block w-4 h-0.5 bg-gray transition-opacity duration-200 ${
-            isMobileMenuOpen ? 'opacity-0' : ''
-          }`}></span>
-          <span className={`block w-5 h-0.5 bg-gray transition-transform duration-200 ${
-            isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
-          }`}></span>
+          <span className="block w-5 h-0.5 bg-gray"></span>
+          <span className="block w-4 h-0.5 bg-gray"></span>
+          <span className="block w-5 h-0.5 bg-gray"></span>
         </button>
 
         {/* Desktop Links */}
@@ -137,7 +131,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsResumeDropdownOpen(!isResumeDropdownOpen)}
               className={`flex items-center gap-1 transition ${
-                activeSection === 'experience' || activeSection === 'education'
+                activeSection === 'experience' || activeSection === 'education' || activeSection === 'beyond-coding'
                   ? 'text-white' 
                   : 'text-gray hover:text-white'
               }`}
@@ -177,12 +171,17 @@ const Navbar = () => {
                 </a>
                 <a
                   href="/#beyond-coding"
-                  className="block px-4 py-2 text-gray hover:text-white hover:bg-gray/10 transition"
+                  className={`block px-4 py-2 transition hover:bg-gray/10 ${
+                    activeSection === 'beyond-coding' 
+                      ? 'text-white' 
+                      : 'text-gray hover:text-white'
+                  }`}
+                  onClick={() => handleNavClick('beyond-coding')}
                 >
                   Beyond Coding
                 </a>
                 <a
-                  href="/cv.pdf"
+                  href="https://drive.google.com/file/d/15TT9qIqua6uEcixmopy5F5E1GQiTpVlz/view?usp=drive_link"
                   target="_blank"
                   className="block px-4 py-2 text-gray hover:text-white hover:bg-gray/10 transition"
                 >
@@ -204,13 +203,33 @@ const Navbar = () => {
           >
             <span className="text-primary">#</span>contact-me
           </a>
-
+            
         </nav>
 
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 bg-background z-50 pt-16">
-            <nav className="bg-background flex flex-col items-start gap-8 p-6 font-fira text-2xl">
+          <div className="lg:hidden fixed inset-0 bg-background z-50">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-4 right-4 text-gray hover:text-white transition p-2 z-10"
+              aria-label="Close menu"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <nav className="bg-background flex flex-col items-start gap-8 p-6 pt-16 font-fira text-2xl">
               <a 
                 href="/#home" 
                 className={`flex items-center gap-1 transition ${
@@ -278,6 +297,17 @@ const Navbar = () => {
                 <span className="text-primary">#</span>education
               </a>
               <a
+                href="/#beyond-coding"
+                className={`flex items-center gap-1 transition ${
+                  activeSection === 'beyond-coding' 
+                    ? 'text-white' 
+                    : 'text-gray hover:text-white'
+                }`}
+                onClick={() => handleNavClick('beyond-coding')}
+              >
+                <span className="text-primary">#</span>beyond-coding
+              </a>
+              <a
                 href="/#contact"
                 className={`flex items-center gap-1 transition ${
                   activeSection === 'contact' 
@@ -292,7 +322,7 @@ const Navbar = () => {
               {/* Mobile Social Links */}
               <div className="flex gap-6 mt-8 text-2xl">
                 <a 
-                  href="https://github.com/YOUR_USERNAME"
+                  href="https://github.com/nakshjoshi"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray hover:text-primary transition"
@@ -301,7 +331,7 @@ const Navbar = () => {
                   <FaGithub />
                 </a>
                 <a 
-                  href="https://linkedin.com/in/YOUR_USERNAME"
+                  href="https://www.linkedin.com/in/nakshjoshi/"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray hover:text-primary transition"
@@ -310,7 +340,7 @@ const Navbar = () => {
                   <FaLinkedin />
                 </a>
                 <a 
-                  href="https://leetcode.com/YOUR_USERNAME"
+                  href="https://leetcode.com/u/nakshjoshi/"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray hover:text-primary transition"
@@ -319,25 +349,19 @@ const Navbar = () => {
                   <SiLeetcode />
                 </a>
                 <a 
-                  href="mailto:yourmail@gmail.com"
+                  href="mailto:connect.nakshjoshi@gmail.com"
                   className="text-gray hover:text-primary transition"
                   title="Email Me"
                 >
                   <FaEnvelope />
                 </a>
                 <a 
-                  href="tel:+91XXXXXXXXXX"
+                  href="tel:+917008350087"
                   className="text-gray hover:text-primary transition"
                   title="Call Me"
                 >
                   <FaPhoneAlt />
                 </a>
-              </div>
-              
-              {/* Language switcher */}
-              <div className="flex items-center gap-2 mt-4">
-                <span className="text-gray text-lg">EN</span>
-                <div className="w-3 h-3 border-l border-b border-gray transform rotate-45"></div>
               </div>
             </nav>
           </div>

@@ -1,6 +1,13 @@
+"use client"
 import React from 'react'
 
+
 function Hero() {
+
+
+  function openResume(){
+    window.open('https://drive.google.com/file/d/15TT9qIqua6uEcixmopy5F5E1GQiTpVlz/view?usp=drive_link', '_blank')
+  }
   return (
     <>
 
@@ -24,8 +31,9 @@ function Hero() {
 
           </p>
 
-          <button className="border border-primary text-white px-4 py-2 w-fit hover:bg-primary hover:text-background transition font-fira mx-auto lg:mx-0 mt-4">
-            Lets Connect -{">"}
+
+          <button onClick={openResume} className="border border-primary text-white px-4 py-2 w-fit hover:bg-primary hover:text-background transition font-fira mx-auto lg:mx-0 mt-4">
+            View Resume -{">"}
           </button>
           
         </div>

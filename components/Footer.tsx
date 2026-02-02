@@ -35,12 +35,12 @@ const Footer = () => {
 
             {/* Email */}
             <p className="text-gray text-xs lg:text-sm break-all">
-              nakshatrajoshi@email.com
+              connect.nakshjoshi@gmail.com
             </p>
 
             {/* Role */}
             <p className="text-white text-xs lg:text-sm">
-              Web Designer & Front-end Developer
+              Software Engineering and GenAI Enthusiast
             </p>
 
           </div>
@@ -56,7 +56,7 @@ const Footer = () => {
 
               {/* GitHub */}
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/nakshjoshi"
                 target="_blank"
                 className="hover:text-primary transition"
                 rel="noopener noreferrer"
@@ -66,7 +66,7 @@ const Footer = () => {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/nakshjoshi/"
                 target="_blank"
                 className="hover:text-primary transition"
                 rel="noopener noreferrer"
@@ -76,7 +76,7 @@ const Footer = () => {
 
               {/* LeetCode */}
               <a
-                href="https://leetcode.com/yourusername"
+                href="https://leetcode.com/u/nakshjoshi/"
                 target="_blank"
                 className="hover:text-primary transition"
                 rel="noopener noreferrer"
@@ -86,7 +86,7 @@ const Footer = () => {
 
               {/* Email */}
               <a
-                href="mailto:nakshatrajoshi@email.com"
+                href="mailto:connect.nakshjoshi@gmail.com"
                 className="hover:text-primary transition"
               >
                 <FaEnvelope />
@@ -94,7 +94,7 @@ const Footer = () => {
 
               {/* Call */}
               <a
-                href="tel:+919XXXXXXXXX"
+                href="tel:+917008350087"
                 className="hover:text-primary transition"
               >
                 <FaPhoneAlt />

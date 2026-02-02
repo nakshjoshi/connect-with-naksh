@@ -14,7 +14,7 @@ const SocialBar = () => {
 
         {/* GitHub */}
         <a
-          href="https://github.com/YOUR_USERNAME"
+          href="https://github.com/nakshjoshi"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition"
@@ -25,7 +25,7 @@ const SocialBar = () => {
 
         {/* LinkedIn */}
         <a
-          href="https://linkedin.com/in/YOUR_USERNAME"
+          href="https://www.linkedin.com/in/nakshjoshi/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition"
@@ -36,7 +36,7 @@ const SocialBar = () => {
 
         {/* LeetCode */}
         <a
-          href="https://leetcode.com/YOUR_USERNAME"
+          href="https://leetcode.com/u/nakshjoshi/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition"
@@ -47,7 +47,7 @@ const SocialBar = () => {
 
         {/* Email */}
         <a
-          href="mailto:yourmail@gmail.com"
+          href="mailto:connect.nakshjoshi@gmail.com"
           className="hover:text-primary transition"
           title="Email Me"
         >
@@ -56,7 +56,7 @@ const SocialBar = () => {
 
         {/* Call */}
         <a
-          href="tel:+91XXXXXXXXXX"
+          href="tel:+917008350087"
           className="hover:text-primary transition"
           title="Call Me"
         >

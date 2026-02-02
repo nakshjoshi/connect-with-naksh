@@ -35,28 +35,28 @@ const Contact = () => {
           <div className="flex flex-col gap-2 lg:gap-3 text-gray text-sm">
 
             {/* Discord */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-gray hover:text-white transition cursor-pointer">
               <FaDiscord className="flex-shrink-0" />
-              <span>@nakshatra</span>
+              <span>nakshatrajoshi</span>
             </div>
 
             {/* Email */}
-            <div className="flex items-center gap-2">
+            <a href="mailto:connect.nakshjoshi@gmail.com" className="flex items-center gap-2 text-gray hover:text-white transition">
               <FaEnvelope className="flex-shrink-0" />
-              <span className="break-all">nakshatrajoshi@email.com</span>
-            </div>
+              <span className="break-all">connect.nakshjoshi@gmail.com</span>
+            </a>
 
             {/* WhatsApp */}
-            <div className="flex items-center gap-2">
+            <a href="http://wa.me/917008350087" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray hover:text-white transition">
               <FaWhatsapp className="flex-shrink-0" />
-              <span>+91 XXXXX XXXXX</span>
-            </div>
+              <span>+91 7008350087</span>
+            </a>
 
             {/* LinkedIn */}
-            <div className="flex items-center gap-2">
+            <a href="https://www.linkedin.com/in/nakshjoshi/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray hover:text-white transition">
               <FaLinkedin className="flex-shrink-0" />
               <span>linkedin.com/in/nakshjoshi</span>
-            </div>
+            </a>
 
           </div>
 
