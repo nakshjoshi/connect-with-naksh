@@ -52,6 +52,7 @@ const ContactForm = () => {
           <input
             type="text"
             name="name"
+            required
             placeholder="Name"
             className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray focus:outline-none focus:border-primary text-sm lg:text-base"
           />
@@ -59,6 +60,7 @@ const ContactForm = () => {
           {/* Email */}
           <input
             type="email"
+            required
             name="email"
             placeholder="Email"
             className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray focus:outline-none focus:border-primary text-sm lg:text-base"
@@ -70,6 +72,7 @@ const ContactForm = () => {
         <input
           type="text"
           name="subject"
+          required
           placeholder="Subject"
           className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray focus:outline-none focus:border-primary text-sm lg:text-base"
         />
@@ -78,6 +81,7 @@ const ContactForm = () => {
         <textarea
           placeholder="Message"
           name="message"
+          required
           rows={4}
           className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray resize-none focus:outline-none focus:border-primary text-sm lg:text-base min-h-[100px]"
         ></textarea>
