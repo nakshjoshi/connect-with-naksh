@@ -1,3 +1,5 @@
+"use client"
+
 import AboutMe from "@/components/AboutMe";
 import Achievements from "@/components/Achievements";
 import BeyondCoding from "@/components/BeyondCoding";
@@ -14,10 +16,19 @@ import Quote from "@/components/Quote";
 import Skills from "@/components/Skills";
 import SocialBar from "@/components/Socials";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="bg-background ">
+    <motion.main 
+    className="bg-background "
+    initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ 
+        ease: "easeOut",
+        duration: 0.7 }}
+    >
+      
       <Progress/>
       {/* <SocialBar></SocialBar> */}
       {/* <Navbar></Navbar> */}
@@ -34,6 +45,6 @@ export default function Home() {
       <Contact></Contact>
       
       {/* <Footer></Footer> */}
-    </main>
+    </motion.main>
     );
 }
