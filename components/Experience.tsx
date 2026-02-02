@@ -1,3 +1,12 @@
+"use client"
+
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  tap: { scale: 0.95, transition: { duration: 0.1 } }
+};
+
 const experiences = [
   {
     company: "Prodigal AI",
@@ -95,7 +104,7 @@ export default function Experience() {
 
             {/* Link */}
             <div>
-              <a
+              <motion.a
                 href={exp.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,9 +118,12 @@ export default function Experience() {
                   hover:bg-primary/10
                   transition
                 "
+                whileTap="tap"
+                whileHover="hover"
+                variants={buttonVariants}
               >
                 View Letter →
-              </a>
+              </motion.a>
             </div>
 
           </div>

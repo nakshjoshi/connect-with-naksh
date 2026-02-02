@@ -1,7 +1,13 @@
 "use client"
 
 import React from "react";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+
+const buttonVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  tap: { scale: 0.95, transition: { duration: 0.1 } }
+};
 
 const ContactForm = () => {
 
@@ -77,13 +83,15 @@ const ContactForm = () => {
         ></textarea>
 
         {/* Button */}
-        <button
+        <motion.button
           type="submit"
-          
           className="border border-primary text-white px-4 py-2 w-full sm:w-fit hover:bg-primary transition text-sm lg:text-base"
+          whileTap="tap"
+          whileHover="hover"
+          variants={buttonVariants}
         >
           Send
-        </button>
+        </motion.button>
 
       </form>
     </div>

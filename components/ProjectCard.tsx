@@ -1,5 +1,13 @@
+"use client";
+
 import React from "react";
 import { FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  tap: { scale: 0.95, transition: { duration: 0.1 } }
+};
 
 type Project = {
   title: string;
@@ -45,23 +53,29 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Buttons */}
         <div className="mt-auto flex flex-col sm:flex-row gap-2 lg:gap-3">
 
-          <a
+          <motion.a
             href={project.live}
             className="border border-primary px-3 py-1.5 lg:px-4 lg:py-2 text-white text-xs lg:text-sm hover:bg-primary transition text-center"
+            whileTap="tap"
+            whileHover="hover"
+            variants={buttonVariants}
           >
             Live &lt;~&gt;
-          </a>
+          </motion.a>
 
           {project.demo && (
-            <a
+            <motion.a
               href={project.demo}
               className="border border-gray px-3 py-1.5 lg:px-4 lg:py-2 text-gray text-xs lg:text-sm hover:text-white hover:border-white transition text-center flex items-center justify-center gap-2"
               target="_blank"
               rel="noopener noreferrer"
+              whileTap="tap"
+              whileHover="hover"
+              variants={buttonVariants}
             >
               <FaGithub className="text-base lg:text-lg" />
               <span>GitHub</span>
-            </a>
+            </motion.a>
           )}
 
         </div>

@@ -1,6 +1,11 @@
 "use client"
 import React from 'react'
+import { motion } from "framer-motion";
 
+const buttonVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  tap: { scale: 0.95, transition: { duration: 0.1 } }
+};
 
 function Hero() {
 
@@ -32,9 +37,15 @@ function Hero() {
           </p>
 
 
-          <button onClick={openResume} className="border border-primary text-white px-4 py-2 w-fit hover:bg-primary hover:text-background transition font-fira mx-auto lg:mx-0 mt-4">
+          <motion.button 
+            onClick={openResume} 
+            className="border border-primary text-white px-4 py-2 w-fit hover:bg-primary hover:text-background transition font-fira mx-auto lg:mx-0 mt-4"
+            whileTap="tap"
+            whileHover="hover"
+            variants={buttonVariants}
+          >
             View Resume -{">"}
-          </button>
+          </motion.button>
           
         </div>
 

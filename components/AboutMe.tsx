@@ -1,4 +1,12 @@
-import React from 'react'
+"use client"
+
+import React from 'react';
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  tap: { scale: 0.95, transition: { duration: 0.1 } }
+};
 
 function AboutMe() {
   return (
@@ -31,7 +39,7 @@ function AboutMe() {
 
           
 
-          <a
+          <motion.a
             href="#contact"
             className="
               inline-flex items-center justify-center
@@ -43,9 +51,12 @@ function AboutMe() {
               hover:bg-primary/10
               transition
             "
+            whileTap="tap"
+            whileHover="hover"
+            variants={buttonVariants}
           >
             Connect with Me! -{">"}
-          </a>
+          </motion.a>
 
         </div>
 

@@ -1,3 +1,12 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  tap: { scale: 0.95, transition: { duration: 0.1 } }
+};
+
 type SmallProject = {
   title: string;
   desc: string;
@@ -31,13 +40,16 @@ export default function SmallProjectCard({
           {project.desc}
         </p>
 
-        <a
+        <motion.a
           href={project.link}
           target="_blank"
           className="inline-block border border-primary px-4 py-1"
+          whileTap="tap"
+          whileHover="hover"
+          variants={buttonVariants}
         >
           Live &lt;~&gt;
-        </a>
+        </motion.a>
 
       </div>
 
