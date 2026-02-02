@@ -3,7 +3,8 @@ const experiences = [
     company: "Prodigal AI",
     role: "AI Developer Intern",
     period: "Jun 2025 – Aug 2025",
-    link: "#",
+    link: "https://drive.google.com/file/d/1tpTMo591Xb3NxkapR5-QZqC8_xB__pVR/view?usp=drive_link",
+    logo: "pai.jpg", // Add company logo
     description:
       "Engineered scalable GenAI/ML backend architectures with human-in-the-loop workflows and deployed 3+ production-grade pipelines using Docker, FastAPI, and AWS, improving system throughput by 10%. Implemented MLOps/AIOps lifecycle automation with Airflow and MLflow/DagsHub, and built real-time, event-driven data streaming using Apache Kafka, reducing development iteration time by 15%. Collaborated in an Agile/Scrum environment to define requirements, manage sprint tasks, and deliver features with strong attention to detail.",
   },
@@ -12,7 +13,8 @@ const experiences = [
     company: "Tata Steel Ltd.",
     role: "Vocational Trainee and Intern, Data Visualisation Dept.",
     period: "Jul 2024 – Jul 2024",
-    link: "#",
+    link: "https://drive.google.com/file/d/1VU_OwtHq5RCFRZcAqI9JSN-aErZDwOUS/view?usp=drive_link",
+    logo: "tsl.png", // Add company logo
     description:
       "Developed and deployed 3+ interactive Tableau dashboards, studied Google Cloud Platform and SAP-BODS pipelines which can lead to 25% faster reporting turnaround for sales data analysis across 1+ departments.",
   },
@@ -50,14 +52,32 @@ export default function Experience() {
             "
           >
 
-            {/* Top Row */}
-            <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+            {/* Top Row with Logo */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:items-center lg:justify-between">
 
-              <h3 className="text-lg lg:text-xl font-medium text-white">
-                {exp.company}
-              </h3>
+              {/* Left: Logo + Company Info */}
+              <div className="flex items-center gap-3">
+                
+                {/* Company Logo */}
+                <div className="w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 bg-white rounded-lg p-2 flex items-center justify-center">
+                  <img
+                    src={exp.logo}
+                    alt={`${exp.company} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
 
-              <span className="text-gray text-xs lg:text-sm font-jet">
+                {/* Company Name */}
+                <div>
+                  <h3 className="text-lg lg:text-xl font-medium text-white">
+                    {exp.company}
+                  </h3>
+                </div>
+              
+              </div>
+
+              {/* Right: Period */}
+              <span className="text-gray text-xs lg:text-sm font-jet sm:text-right">
                 {exp.period}
               </span>
 

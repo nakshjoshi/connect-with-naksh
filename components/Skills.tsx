@@ -89,7 +89,10 @@ const Skills = () => {
                 <div className="px-3 lg:px-4 py-3 flex flex-wrap gap-1 lg:gap-2 text-gray text-xs lg:text-sm">
 
                   {block.items.map((item, idx) => (
-                    <span key={idx} className="whitespace-nowrap">{item}</span>
+                    <React.Fragment key={idx}>
+                      <span className="whitespace-nowrap">{item}</span>
+                      {idx < block.items.length - 1 && <span className="text-gray">•</span>}
+                    </React.Fragment>
                   ))}
 
                 </div>

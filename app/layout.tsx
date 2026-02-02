@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Connect With NakshJoshi",
   description: "Nakshatra Joshi's Developer Portfolio",
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({

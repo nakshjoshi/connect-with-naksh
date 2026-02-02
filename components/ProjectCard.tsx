@@ -24,7 +24,10 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Tech Stack */}
       <div className="flex flex-wrap gap-1 lg:gap-2 px-3 lg:px-4 py-2 text-xs lg:text-sm text-gray border-b border-gray">
         {project.tech.map((t, i) => (
-          <span key={i} className="whitespace-nowrap">{t}</span>
+          <React.Fragment key={i}>
+            <span className="whitespace-nowrap">{t}</span>
+            {i < project.tech.length - 1 && <span className="text-gray">•</span>}
+          </React.Fragment>
         ))}
       </div>
 
