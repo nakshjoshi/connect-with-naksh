@@ -8,6 +8,7 @@ import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Progress from "@/components/Progress";
 import Projects from "@/components/Projects";
 import Quote from "@/components/Quote";
 import Skills from "@/components/Skills";
@@ -17,8 +18,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="bg-background ">
+      <Progress/>
       {/* <SocialBar></SocialBar> */}
       {/* <Navbar></Navbar> */}
+
       <Hero></Hero>
       {/* <Quote></Quote> */}
       <AboutMe></AboutMe>
