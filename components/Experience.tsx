@@ -1,40 +1,31 @@
 const experiences = [
   {
-    company: "ABC Tech Pvt Ltd",
-    role: "Frontend Developer Intern",
-    period: "Jun 2024 – Aug 2024",
-    link: "https://abctech.com",
+    company: "Prodigal AI",
+    role: "AI Developer Intern",
+    period: "Jun 2025 – Aug 2025",
+    link: "#",
     description:
-      "Worked on building responsive dashboards using React and Tailwind. Optimized UI performance and collaborated with backend team.",
+      "Engineered scalable GenAI/ML backend architectures with human-in-the-loop workflows and deployed 3+ production-grade pipelines using Docker, FastAPI, and AWS, improving system throughput by 10%. Implemented MLOps/AIOps lifecycle automation with Airflow and MLflow/DagsHub, and built real-time, event-driven data streaming using Apache Kafka, reducing development iteration time by 15%. Collaborated in an Agile/Scrum environment to define requirements, manage sprint tasks, and deliver features with strong attention to detail.",
   },
 
   {
-    company: "XYZ Solutions",
-    role: "Web Developer",
-    period: "Jan 2025 – Present",
-    link: "https://xyz.com",
+    company: "Tata Steel Ltd.",
+    role: "Vocational Trainee and Intern, Data Visualisation Dept.",
+    period: "Jul 2024 – Jul 2024",
+    link: "#",
     description:
-      "Developing scalable web apps with Next.js. Implemented SEO, authentication and component libraries.",
-  },
-
-  {
-    company: "Freelance",
-    role: "Full Stack Developer",
-    period: "2023 – Present",
-    link: "https://github.com/yourname",
-    description:
-      "Delivered multiple client projects including portfolios, landing pages and admin panels.",
+      "Developed and deployed 3+ interactive Tableau dashboards, studied Google Cloud Platform and SAP-BODS pipelines which can lead to 25% faster reporting turnaround for sales data analysis across 1+ departments.",
   },
 ];
 
 export default function Experience() {
   return (
-    <section className="bg-background text-white px-6 md:px-24 py-24 font-fira">
+    <section className="bg-background text-white px-4 md:px-6 lg:px-24 py-16 lg:py-24 font-fira" id="experience">
 
       {/* Heading */}
-      <div className="flex items-center gap-4 mb-12">
+      <div className="flex items-center gap-4 mb-8 lg:mb-12 max-w-6xl mx-auto">
 
-        <h2 className="text-3xl flex items-center gap-2 font-jet">
+        <h2 className="text-2xl lg:text-3xl flex items-center gap-2 font-jet whitespace-nowrap">
           <span className="text-primary">#</span>
           experience
         </h2>
@@ -44,51 +35,46 @@ export default function Experience() {
       </div>
 
       {/* Cards */}
-      <div className="space-y-6 max-w-6xl mx-auto">
+      <div className="space-y-4 lg:space-y-6 max-w-6xl mx-auto">
 
         {experiences.map((exp, i) => (
           <div
             key={i}
             className="
               border border-gray
-              p-5
+              p-4 lg:p-5
               flex flex-col
-              gap-4
+              gap-3 lg:gap-4
               hover:border-primary
               transition
             "
           >
 
             {/* Top Row */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
 
-              <h3 className="text-xl font-medium text-white">
+              <h3 className="text-lg lg:text-xl font-medium text-white">
                 {exp.company}
               </h3>
 
-              <span className="text-gray text-sm font-jet">
+              <span className="text-gray text-xs lg:text-sm font-jet">
                 {exp.period}
               </span>
 
             </div>
 
             {/* Role */}
-            <div className="text-primary text-sm font-jet">
-
+            <div className="text-primary text-xs lg:text-sm font-jet">
               {exp.role}
-
             </div>
 
             {/* Description */}
-            <p className="text-gray text-sm leading-relaxed max-w-4xl">
-
+            <p className="text-gray text-xs lg:text-sm leading-relaxed">
               {exp.description}
-
             </p>
 
             {/* Link */}
             <div>
-
               <a
                 href={exp.link}
                 target="_blank"
@@ -96,17 +82,16 @@ export default function Experience() {
                 className="
                   inline-flex items-center
                   border border-primary
-                  px-4 py-1.5
+                  px-3 py-1 lg:px-4 lg:py-1.5
                   text-white
                   font-jet
-                  text-sm
+                  text-xs lg:text-sm
                   hover:bg-primary/10
                   transition
                 "
               >
-                Website →
+                View Letter →
               </a>
-
             </div>
 
           </div>

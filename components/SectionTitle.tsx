@@ -8,7 +8,7 @@ export default function SectionTitle({ title, subtitle }: Props) {
     <div className="space-y-2">
 
       {/* Main Title */}
-      <div className="flex items-center gap-2 text-3xl font-semibold">
+      <div className="flex items-center gap-2 text-3xl font-semibold text-white">
 
         <span className="text-primary">/</span>
         <span>{title}</span>

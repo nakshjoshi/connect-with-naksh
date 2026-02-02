@@ -4,23 +4,39 @@ import SmallProjectCard from "@/components/SmallProjectCard";
 
 const bigProjects = [
   {
-    title: "ChertNodes",
-    desc: "Minecraft servers hosting",
-    tech: ["HTML", "SCSS", "Python", "Flask"],
-    image: "/projects/p1.png",
+    title: "StrumHub",
+    desc: "Interactive React + TypeScript learning platform integrating Google Gemini for AI-assisted guidance and Web Audio API for real-time pitch detection",
+    image: "/st.png",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Web Audio API", "HTML/CSS"],
+    live: "#",
+    demo: "#",
+  },
+  {
+    title: "Bilingual AI Chatbot",
+    desc: "Bilingual CRAG-based retrieval system using ChromaDB, SentenceTransformers, and Gemini 2.0 Flash, achieving 85%+ accurate query responses across 3300+ Indian schemes",
+    image: "/bilai.png",
+    tech: ["Python", "Streamlit", "ChromaDB", "Selenium", "Deep Translator"],
+    live: "#",
+    demo: "#",
+  },
+  {
+    title: "GitLab Beacon",
+    desc: "AI chatbot for natural-language access to GitLab's documentation, leveraging LangChain, Gemini 2.5 Flash, and FAISS with scalable RAG pipeline and MMR-based retrieval",
+    image: "/gitab.png",
+    tech: ["Python", "LangChain", "SentenceTransformers", "FAISS", "Git LFS", "Streamlit", "Gemini API"],
     live: "#",
     demo: "#",
   },
 ];
 
-const smallProjects = [
-  {
-    title: "Mini Tool",
-    desc: "CLI based utility",
-    tech: ["Node", "TS"],
-    link: "#",
-  },
-];
+// const smallProjects = [
+//   {
+//     title: "Mini Tool",
+//     desc: "CLI based utility",
+//     tech: ["Node", "TS"],
+//     link: "#",
+//   },
+// ];
 
 export default function ProjectsPage() {
   return (
@@ -47,7 +63,7 @@ export default function ProjectsPage() {
 
         </section>
 
-        {/* Small Projects */}
+        {/* Small Projects
         <section className="space-y-8">
 
           <SectionTitle title="small-projects" />
@@ -63,7 +79,7 @@ export default function ProjectsPage() {
 
           </div>
 
-        </section>
+        </section> */}
 
       </div>
 

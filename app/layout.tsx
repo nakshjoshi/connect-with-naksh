@@ -30,11 +30,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Fixed Navbar */}
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <Navbar />
+        </div>
 
-        <Navbar></Navbar>
-        {/* <SocialBar></SocialBar> */}
-        {children}
-        <Footer></Footer>
+        {/* Fixed Social Bar - Hidden on mobile */}
+        <div className="hidden lg:block">
+          <SocialBar />
+        </div>
+
+        {/* Main Content Area - Responsive margin */}
+        <div className="lg:ml-16 pt-16 lg:pt-20"> {/* responsive margins for mobile/desktop */}
+          {children}
+        </div>
+
+        {/* Footer - Responsive margin */}
+        <div className="lg:ml-16">
+          <Footer />
+        </div>
       </body>
     </html>
   );

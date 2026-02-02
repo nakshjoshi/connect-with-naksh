@@ -27,7 +27,7 @@ export default function Home() {
       <Skills></Skills>
       <Experience></Experience>
       <Education></Education>
-      <Achievements></Achievements>
+      {/* <Achievements></Achievements> */}
       <BeyondCoding></BeyondCoding>
       <Contact></Contact>
       

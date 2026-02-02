@@ -1,19 +1,19 @@
 import React from "react";
-import { FaDiscord, FaEnvelope } from "react-icons/fa";
+import { FaDiscord, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="max-w-6xl mx-auto px-6 py-32 font-fira"
+      className="bg-background text-white px-4 md:px-6 lg:px-24 py-16 lg:py-24 font-fira"
     >
       {/* Heading */}
-      <div className="flex items-center gap-4 mb-12">
+      <div className="flex items-center gap-4 mb-8 lg:mb-12 max-w-6xl mx-auto">
 
         <div className="flex items-center gap-2">
-          <span className="text-primary text-3xl font-medium">#</span>
-          <h2 className="text-white text-3xl font-medium">
+          <span className="text-primary text-2xl lg:text-3xl font-medium">#</span>
+          <h2 className="text-white text-2xl lg:text-3xl font-medium whitespace-nowrap">
             contact
           </h2>
         </div>
@@ -22,48 +22,52 @@ const Contact = () => {
 
       </div>
 
-      {/* Main Layout */}
-      <div className="flex flex-col md:flex-row justify-between gap-12">
-
-        {/* Left Content */}
-        <div className="max-w-md">
-
-          <p className="text-gray leading-relaxed text-base">
-            I’m interested in freelance opportunities. However,
-            if you have other requests or questions, don’t hesitate
-            to contact me.
-          </p>
-
-        </div>
+      {/* Main Layout - stacked on mobile */}
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-12 max-w-6xl mx-auto">
 
         {/* Message Box */}
-        <div className="border border-gray p-6 w-fit">
+        <div className="border border-gray p-4 lg:p-6 w-full lg:w-fit h-fit">
 
-          <h3 className="text-white font-semibold mb-4">
+          <h3 className="text-white font-semibold mb-3 lg:mb-4 text-base lg:text-lg">
             Message me here
           </h3>
 
-          <div className="flex flex-col gap-3 text-gray text-sm">
+          <div className="flex flex-col gap-2 lg:gap-3 text-gray text-sm">
 
             {/* Discord */}
             <div className="flex items-center gap-2">
-              <FaDiscord />
+              <FaDiscord className="flex-shrink-0" />
               <span>@nakshatra</span>
             </div>
 
             {/* Email */}
             <div className="flex items-center gap-2">
-              <FaEnvelope />
-              <span>nakshatrajoshi@email.com</span>
+              <FaEnvelope className="flex-shrink-0" />
+              <span className="break-all">nakshatrajoshi@email.com</span>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="flex items-center gap-2">
+              <FaWhatsapp className="flex-shrink-0" />
+              <span>+91 XXXXX XXXXX</span>
+            </div>
+
+            {/* LinkedIn */}
+            <div className="flex items-center gap-2">
+              <FaLinkedin className="flex-shrink-0" />
+              <span>linkedin.com/in/nakshjoshi</span>
             </div>
 
           </div>
 
         </div>
 
-      </div>
+        {/* Contact Form */}
+        <div className="w-full lg:flex-1">
+          <ContactForm />
+        </div>
 
-      <ContactForm></ContactForm>
+      </div>
     </section>
   );
 };

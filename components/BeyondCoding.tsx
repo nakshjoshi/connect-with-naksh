@@ -1,41 +1,48 @@
 const beyondCoding = [
   {
-    title: "Technical Event Management",
-    subtitle: "IEEE RGIPT · 2023–2025",
+    title: "Training and Placement Student Coordinator",
+    subtitle: "Career Development Cell · TnP RGIPT",
     description:
-      "Organized and coordinated multiple national-level workshops, hackathons, and coding events with participation from 500+ students.",
+      "Part of the Career Development Cell under Training and Placement department at RGIPT, coordinating placement activities and internship opportunities for students. Responsible for facilitating industry connections, managing recruitment drives, organizing pre-placement talks, and supporting students throughout the placement process. Collaborated with corporate partners and maintained placement databases to ensure successful career outcomes.",
   },
 
   {
-    title: "Public Speaking & Anchoring",
-    subtitle: "College Fests & Seminars",
+    title: "Technical Event Management & Leadership",
+    subtitle: "IEEE RGIPT SB & E-Cell RGIPT · Feb 2024–Present",
     description:
-      "Anchored technical and cultural programs, hosted guest lectures, and conducted orientation sessions for juniors.",
+      "Served as Technical Executive managing databases using Google Forms and Excel, designing promotional materials with Canva and Adobe Express. Core member of E-Cell RGIPT website development committee using HTML, CSS, and JavaScript. Live-streamed chess tournaments on YouTube with professional video layouts and managed technical operations for all E-Cell events ensuring smooth execution.",
   },
 
   {
-    title: "Content & Design",
-    subtitle: "Posters · Social Media · Branding",
+    title: "Event Coordination & Hospitality",
+    subtitle: "URJOTSAV & ENERGIA Fest · RGIPT",
     description:
-      "Designed promotional posters, banners, and social media creatives using Figma and Canva for college communities.",
+      "Guest Outreach and Guest Hospitality Executive at URJOTSAV Annual Technical Fest, managing guest relations and coordination activities. Documentation Executive at ENERGIA Annual Sports Fest, responsible for event documentation, record-keeping, and administrative support for sports competitions.",
   },
 
   {
-    title: "Community Leadership",
-    subtitle: "Student Coordinator · CDC & IEEE",
+    title: "Competitive Sports & Team Representation",
+    subtitle: "Badminton Team · RGIPT & Tata D.A.V. Public School",
     description:
-      "Led student teams, handled industry communication, and managed placement and training activities.",
+      "Participated at Spardha IIT BHU Annual Sports Fest as part of RGIPT institute badminton team, reaching pre-quarters. Represented Tata D.A.V. Public School in DAV Zonal Sports under DAV National Sports in 2018 and 2019, achieving quarter-finals individually and pre-quarter finals in team events, demonstrating competitive excellence and teamwork.",
+  },
+
+  {
+    title: "Environmental Leadership & Project Management",
+    subtitle: "The Green School Project · Tata Steel & TERI · 2017 - 2018",
+    description:
+      "Led school team in 'The Green School Project' organized by Tata Steel and TERI, winning 'The Green Trophy' in 2018-19. Developed proficiency in MS PowerPoint, MS Word, Filmora, and Kine Master while gaining expertise in team collaboration, event planning and management, leadership, and quick problem-solving under pressure.",
   },
 ];
 
 export default function BeyondCoding() {
   return (
-    <section className="bg-background text-white px-6 md:px-24 py-24 font-fira">
+    <section className="bg-background text-white px-4 md:px-6 lg:px-24 py-16 lg:py-24 font-fira" id="beyond-coding">
 
       {/* Heading */}
-      <div className="flex items-center gap-4 mb-12">
+      <div className="flex items-center gap-4 mb-8 lg:mb-12 max-w-6xl mx-auto">
 
-        <h2 className="text-3xl flex items-center gap-2 font-jet">
+        <h2 className="text-2xl lg:text-3xl flex items-center gap-2 font-jet whitespace-nowrap">
           <span className="text-primary">#</span>
           beyond-coding
         </h2>
@@ -45,7 +52,7 @@ export default function BeyondCoding() {
       </div>
 
       {/* Cards */}
-      <div className="space-y-6 max-w-6xl mx-auto">
+      <div className="space-y-4 lg:space-y-6 max-w-6xl mx-auto">
 
         {beyondCoding.map((item, i) => (
           <div
@@ -53,8 +60,8 @@ export default function BeyondCoding() {
             className="
               relative
               border border-gray
-              p-6
-              pl-10
+              p-4 lg:p-6
+              pl-6 lg:pl-10
               hover:border-primary
               transition
             "
@@ -67,7 +74,7 @@ export default function BeyondCoding() {
                 left-0
                 top-0
                 h-full
-                w-[4px]
+                w-[3px] lg:w-[4px]
                 bg-primary
               "
             />
@@ -76,24 +83,18 @@ export default function BeyondCoding() {
             <div className="flex flex-col gap-2">
 
               {/* Title */}
-              <h3 className="text-xl font-medium text-primary">
-
+              <h3 className="text-lg lg:text-xl font-medium text-primary leading-tight">
                 {item.title}
-
               </h3>
 
               {/* Subtitle */}
-              <p className="text-gray text-sm font-jet">
-
+              <p className="text-gray text-xs lg:text-sm font-jet">
                 {item.subtitle}
-
               </p>
 
               {/* Description */}
-              <p className="text-white text-sm leading-relaxed max-w-4xl">
-
+              <p className="text-white text-xs lg:text-sm leading-relaxed">
                 {item.description}
-
               </p>
 
             </div>

@@ -4,7 +4,64 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   @apply font-jet;
+}
+
+/* Mobile optimizations */
+@layer utilities {
+  .text-responsive-xs { font-size: 0.7rem; line-height: 1rem; }
+  .text-responsive-sm { font-size: 0.8rem; line-height: 1.125rem; }
+  .text-responsive-base { font-size: 0.875rem; line-height: 1.25rem; }
+  .text-responsive-lg { font-size: 1rem; line-height: 1.5rem; }
+  .text-responsive-xl { font-size: 1.125rem; line-height: 1.75rem; }
+  
+  /* Ensure smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Fix mobile viewport issues */
+  @media screen and (max-width: 768px) {
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+  }
+  
+  /* Mobile touch improvements */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\:bg-primary:hover {
+      background-color: transparent;
+    }
+    
+    .hover\:text-primary:hover {
+      color: #ABB2BF;
+    }
+    
+    .hover\:border-primary:hover {
+      border-color: #ABB2BF;
+    }
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #282C33;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #48DD7E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ABB2BF;
 }

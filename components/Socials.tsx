@@ -4,10 +4,10 @@ import { SiLeetcode } from "react-icons/si";
 
 const SocialBar = () => {
   return (
-    <div className="fixed left-4 top-0 h-screen w-8 bg-[#282C33] flex flex-col items-center py-6 gap-6 z-50">
+    <div className="hidden lg:flex fixed left-4 top-20 bottom-0 w-8 bg-[#282C33] flex-col items-center justify-center gap-6 z-40">
 
-      {/* Line */}
-      <div className="h-40 w-[1px] bg-gray"></div>
+      {/* Line Above */}
+      <div className="h-32 lg:h-40 w-[1px] bg-gray"></div>
 
       {/* Icons */}
       <div className="flex flex-col items-center gap-4 text-gray text-lg">
@@ -54,7 +54,6 @@ const SocialBar = () => {
           <FaEnvelope />
         </a>
 
-
         {/* Call */}
         <a
           href="tel:+91XXXXXXXXXX"
@@ -64,9 +63,10 @@ const SocialBar = () => {
           <FaPhoneAlt />
         </a>
 
-        
-
       </div>
+
+      {/* Line Below */}
+      <div className="h-32 lg:h-40 w-[1px] bg-gray"></div>
 
     </div>
   );
