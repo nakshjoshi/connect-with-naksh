@@ -5,7 +5,7 @@ const educationData = [
     degree: "B.Tech",
     branch: "Computer Science and Design Engineering",
     location: "Jais, Uttar Pradesh",
-    grade: "7.37 CGPA",
+    grade: "7.4 CGPA",
   },
 
   {

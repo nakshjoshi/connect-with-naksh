@@ -16,7 +16,7 @@ const skillsData = [
   },
   {
     title: "Specializations",
-    items: ["System Design", "AI Automation", "AI Workflows/Pipelines", "RESTful APIs", "LLM Integration"],
+    items: ["System Design", "AI Automation", "AI Workflows", "RESTful APIs", "LLM Integration"],
   },
 ];
 

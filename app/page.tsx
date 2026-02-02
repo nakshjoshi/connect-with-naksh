@@ -1,7 +1,6 @@
 import AboutMe from "@/components/AboutMe";
 import Achievements from "@/components/Achievements";
 import BeyondCoding from "@/components/BeyondCoding";
-import Box from "@/components/Box";
 import Contact from "@/components/Contact";
 import ContactForm from "@/components/ContactForm";
 import Education from "@/components/Education";

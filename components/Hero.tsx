@@ -13,7 +13,7 @@ function Hero() {
         <div className="w-full lg:w-1/2 flex flex-col gap-4 lg:gap-6 text-center lg:text-left">
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-fira text-white leading-snug">
-            <span className="block mb-2">Building intelligent web systems with</span>
+            <span className="block mb-2">Building intelligent systems with</span>
             <span className="text-primary block mb-2">Software Engineering</span>
             <span className="block">and</span>
             <span className="text-primary">Generative AI</span>

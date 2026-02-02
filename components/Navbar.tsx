@@ -209,8 +209,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 bg-[#282C33] z-50 pt-16">
-            <nav className="flex flex-col items-start gap-8 p-6 font-fira text-2xl">
+          <div className="lg:hidden fixed inset-0 bg-background z-50 pt-16">
+            <nav className="bg-background flex flex-col items-start gap-8 p-6 font-fira text-2xl">
               <a 
                 href="/#home" 
                 className={`flex items-center gap-1 transition ${
