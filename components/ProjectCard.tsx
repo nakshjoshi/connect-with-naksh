@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -19,6 +19,11 @@ type Project = {
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
+
+
+  
+
+
   return (
     <div className="border border-gray bg-[#282C33] flex flex-col">
 

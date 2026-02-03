@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -12,7 +12,7 @@ const buttonVariants = {
 const ContactForm = () => {
 
 
-
+  const [buttonText, setButtonText] = useState("Send")
 
 
   const serviceID: string | undefined = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
@@ -27,12 +27,15 @@ const ContactForm = () => {
 
   async function handleSubmit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault()
+    setButtonText("Sending...")
     const form = event.target as HTMLFormElement
 
     await emailjs.sendForm(serviceID!, adminTemplate!, form, pubKey)
+    setButtonText("Sent")
     await emailjs.sendForm(serviceID!, userTemplate!, form, pubKey)
 
     form.reset()
+    setButtonText("Send")
 
   }
 
@@ -94,7 +97,7 @@ const ContactForm = () => {
           whileHover="hover"
           variants={buttonVariants}
         >
-          Send
+          {buttonText}
         </motion.button>
 
       </form>
