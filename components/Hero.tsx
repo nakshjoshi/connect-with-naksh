@@ -60,7 +60,7 @@ function Hero() {
 
           {/* Badge */}
           <div className="absolute -bottom-4 lg:bottom-0 left-1/2 -translate-x-1/2 bg-background border border-gray px-2 lg:px-3 py-1 lg:py-2 flex items-center gap-2 text-gray text-xs lg:text-sm font-fira w-[280px] sm:w-auto">
-            <span className="w-3 h-3 bg-primary block font-fira flex-shrink-0"></span>
+            <span className="w-3 h-3 bg-[#FFBF00] block font-fira flex-shrink-0"></span>
             <span className="truncate">Currently working on Swiftly</span>
           </div>
 
