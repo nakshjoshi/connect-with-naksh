@@ -54,7 +54,7 @@ const bigProjects = [
   {
     title: "Insurance Cost Predictor",
     desc: "Processed 1000+ insurance records and trained regression models with 97% prediction accuracy, deploying them in a Flask web application featuring real-time quote estimation and interactive UI",
-    image: "/insurance.png",
+    image: "/icp.png",
     tech: ["Python", "NumPy", "pandas", "scikit-learn", "Flask", "HTML", "CSS", "JavaScript"],
     live: "https://nakshjoshi-rgipt.koyeb.app/",
     demo: "https://github.com/nakshjoshi/flaskMLapp",
