@@ -11,7 +11,7 @@ function Hero() {
 
 
   function openResume(){
-    window.open('https://drive.google.com/file/d/1fc0Pgk5j9JAXJytGCoTY_OcHzJ3gzs-y/view?usp=sharing', '_blank')
+    window.open('https://drive.google.com/file/d/1bAlnTpDZAj-AUIQpD24VKFVdlgIl6Tg0/view?usp=sharing', '_blank')
   }
   return (
     <>
