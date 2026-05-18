@@ -9,6 +9,15 @@ const buttonVariants = {
 
 const experiences = [
   {
+    company: "CargoFL (Innoctive Technologies Pvt. Ltd.)",
+    role: "Software Developer Intern",
+    period: "May 2026 – Present",
+    link: "#",
+    logo: "https://media.licdn.com/dms/image/v2/D4E0BAQHLPpWK5ZRfIA/company-logo_200_200/B4EZWvKxORHcAM-/0/1742400591397/cargofl_logo?e=2147483647&v=beta&t=t4AT7EKbNuQ7p4cjGCVbzHlkjDvVxxYlMywOWcLe_ns",
+    description:
+      "Building a standalone full-stack agent application with Hono and React, owning end-to-end flows across UI state, REST API contracts, tool-call orchestration, inter-service communication, environment configuration, and Turborepo/pnpm workspace boundaries.",
+  },
+  {
     company: "Prodigal AI",
     role: "AI Developer Intern",
     period: "Jun 2025 – Aug 2025",
@@ -103,28 +112,30 @@ export default function Experience() {
             </p>
 
             {/* Link */}
-            <div>
-              <motion.a
-                href={exp.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex items-center
-                  border border-primary
-                  px-3 py-1 lg:px-4 lg:py-1.5
-                  text-white
-                  font-jet
-                  text-xs lg:text-sm
-                  hover:bg-primary/10
-                  transition
-                "
-                whileTap="tap"
-                whileHover="hover"
-                variants={buttonVariants}
-              >
-                View Letter →
-              </motion.a>
-            </div>
+            {exp.link && exp.link !== "#" && (
+              <div>
+                <motion.a
+                  href={exp.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex items-center
+                    border border-primary
+                    px-3 py-1 lg:px-4 lg:py-1.5
+                    text-white
+                    font-jet
+                    text-xs lg:text-sm
+                    hover:bg-primary/10
+                    transition
+                  "
+                  whileTap="tap"
+                  whileHover="hover"
+                  variants={buttonVariants}
+                >
+                  View Letter →
+                </motion.a>
+              </div>
+            )}
 
           </div>
         ))}

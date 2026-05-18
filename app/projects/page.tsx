@@ -4,6 +4,14 @@ import SmallProjectCard from "@/components/SmallProjectCard";
 
 const bigProjects = [
   {
+    title: "Swiftly",
+    desc: "Architected a distributed resume automation platform spanning an Express.js/Bun REST API, Next.js dashboard, WXT MV3 browser extension, and Dockerized LaTeX service. Engineered a multi-format AI resume parsing pipeline using Gemini 2.5 Flash, pdf-parse, Mammoth, and LaTeX regex cleaning to convert PDF, DOCX, and LaTeX resumes into schema-validated JSON. Designed a two-stage LLM autofill orchestration layer for semantic DOM extraction and Gemini mapping.",
+    image: "/swiftly.png",
+    tech: ["Next.js", "TypeScript", "Bun", "Express.js", "Prisma", "PostgreSQL", "JWT", "Gemini API", "Tailwind CSS"],
+    live: "https://swiftly.nakshjoshi.in",
+    demo: "https://github.com/nakshjoshi/swiftly",
+  },
+  {
     title: "Brain Cache",
     desc: "Full-stack React + TypeScript SPA with intelligent caching and data pre-fetching, featuring modular architecture, JWT authentication, and OpenAI API integration for enhanced user experience",
     image: "/bc.png",

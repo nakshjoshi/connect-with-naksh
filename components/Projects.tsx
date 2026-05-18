@@ -3,6 +3,14 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
+    title: "Swiftly",
+    desc: "Architected a distributed resume automation platform spanning an Express.js/Bun REST API, Next.js dashboard, WXT MV3 browser extension, and Dockerized LaTeX service. Engineered a multi-format AI resume parsing pipeline using Gemini 2.5 Flash, pdf-parse, Mammoth, and LaTeX regex cleaning. Designed a two-stage LLM autofill orchestration layer for semantic DOM extraction and Gemini mapping.",
+    image: "swiftly.png",
+    tech: ["Next.js", "TypeScript", "Bun", "Express.js", "Prisma", "PostgreSQL", "JWT", "Gemini API", "Tailwind CSS"],
+    live: "https://swiftly.nakshjoshi.in",
+    demo: "https://github.com/nakshjoshi/swiftly",
+  },
+  {
     title: "StrumHub",
     desc: "Interactive React + TypeScript learning platform integrating Google Gemini for AI-assisted guidance and Web Audio API for real-time pitch detection",
     image: "st.png",
