@@ -46,7 +46,16 @@ export default function Timeline() {
                   )}
                 </div>
 
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed">{role.summary}</p>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fg">{role.summary}</p>
+
+                <ul className="mt-4 flex max-w-2xl flex-col gap-2.5">
+                  {role.points.map((point) => (
+                    <li key={point} className="flex gap-2.5 text-sm leading-relaxed text-fg-muted">
+                      <span className="mt-[9px] h-1 w-1 flex-shrink-0 bg-accent-dim" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
 
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {role.stack.map((t) => (

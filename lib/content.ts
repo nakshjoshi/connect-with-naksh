@@ -246,6 +246,8 @@ export type Role = {
   location: string;
   logo: string;
   summary: string;
+  /** Shipped work, kept at the level the resume already states. */
+  points: string[];
   stack: string[];
   /** Case studies produced during this role. */
   work: string[];
@@ -261,8 +263,19 @@ export const experience: Role[] = [
     location: "Pune, Maharashtra · Hybrid",
     logo: "https://media.licdn.com/dms/image/v2/D4E0BAQHLPpWK5ZRfIA/company-logo_200_200/B4EZWvKxORHcAM-/0/1742400591397/cargofl_logo?e=2147483647&v=beta&t=t4AT7EKbNuQ7p4cjGCVbzHlkjDvVxxYlMywOWcLe_ns",
     summary:
-      "Backend work on a chat-based freight-procurement agent and on an AI document-extraction platform — tool-calling over the RFQ lifecycle, queue-backed OCR and vision-LLM extraction, and the reconciliation that decides what clears automatically. Details under NDA.",
-    stack: ["Fastify", "TypeScript", "PostgreSQL", "Drizzle", "Redis", "React", "Cloudflare Workers", "AWS"],
+      "Two production systems: a chat-based freight-procurement agent and the backend of an AI document-extraction platform.",
+    points: [
+      "Built a chat-based freight-procurement agent on Fastify + React with PostgreSQL/Drizzle, implementing 10 tools for the end-to-end RFQ lifecycle across 7 carriers, plus background workers for stale-RFQ reminders and failed-job retries.",
+      "Built the backend of an AI proof-of-delivery extraction platform: file-type routing into a Redis queue with a Postgres-backed job table, pulling documents from S3 for an OCR + vision-LLM extraction service — 7,000+ PODs processed in production.",
+      "Extended line-item-to-total reconciliation across every file-type path, auto-clearing ~82% of production documents and routing the rest to manual review; implemented RBAC across 5 roles.",
+      "Shipped CSV bulk uploads, document-to-shipment linking and URL-persisted AND/OR filters in React/TypeScript/shadcn.",
+      "Containerised the services and ran deploys through GitHub Actions CI/CD to AWS EC2; validated with MCP-driven Playwright E2E flows before client UAT.",
+    ],
+    stack: [
+      "Fastify", "TypeScript", "React", "shadcn/ui", "PostgreSQL", "Drizzle", "Redis",
+      "Docker", "GitHub Actions", "CI/CD", "AWS EC2", "AWS S3",
+      "Cloudflare Workers", "OCR + vision LLMs", "LLM tool calling", "MCP", "Playwright",
+    ],
     work: [],
     letter: "https://drive.google.com/file/d/1vdzSuG4AO2s36NnUtCceoCsGe7ZIR24M/view?usp=sharing",
   },
@@ -273,8 +286,17 @@ export const experience: Role[] = [
     location: "Delhi · Remote",
     logo: "pai.jpg",
     summary:
-      "Built FastAPI backends for RAG content-generation pipelines orchestrated as Airflow DAGs with human-in-the-loop pauses, and wired the MLflow Model Registry in so models could be swapped at runtime without a redeploy.",
-    stack: ["FastAPI", "Python", "Airflow", "MLflow", "DagsHub", "Docker Compose", "AWS EC2"],
+      "RAG content-generation pipelines with human-in-the-loop approval, and the MLOps plumbing to swap models without redeploying.",
+    points: [
+      "Built FastAPI backends for RAG-based AI content-generation pipelines, orchestrated as Airflow DAGs with human-in-the-loop steps that paused for reviewer approval or clarifying input.",
+      "Persisted conversation history in a separate store so paused runs could resume without losing context.",
+      "Used the MLflow Model Registry (DagsHub) to load versioned models at runtime, enabling model swaps without redeploys.",
+      "Containerised services with Docker Compose and deployed to AWS EC2.",
+    ],
+    stack: [
+      "FastAPI", "Python", "RAG", "Airflow", "MLflow", "DagsHub",
+      "Docker", "Docker Compose", "AWS EC2",
+    ],
     work: [],
     letter: "https://drive.google.com/file/d/1tpTMo591Xb3NxkapR5-QZqC8_xB__pVR/view?usp=drive_link",
   },
@@ -285,7 +307,11 @@ export const experience: Role[] = [
     location: "On-site",
     logo: "tsl.png",
     summary:
-      "Built and deployed interactive Tableau dashboards for sales analysis, and studied the GCP and SAP-BODS pipelines feeding them.",
+      "Dashboarding for sales analysis, and the data pipelines feeding it.",
+    points: [
+      "Built and deployed 3+ interactive Tableau dashboards for sales data analysis — a path to ~25% faster reporting turnaround.",
+      "Studied the Google Cloud Platform and SAP-BODS pipelines feeding those dashboards.",
+    ],
     stack: ["Tableau", "SQL", "SAP-BODS", "GCP"],
     work: [],
     letter: "https://drive.google.com/file/d/1VU_OwtHq5RCFRZcAqI9JSN-aErZDwOUS/view?usp=drive_link",
@@ -361,8 +387,12 @@ export const stack = [
     items: ["RAG", "Tool calling", "MCP", "ChromaDB", "LangChain", "OCR + vision LLMs", "MLflow", "Airflow", "Whisper / TTS"],
   },
   {
-    group: "Data & Infra",
-    items: ["PostgreSQL", "Redis", "Prisma / Drizzle", "Docker", "GitHub Actions", "AWS EC2 / S3", "Cloudflare Workers / D1", "Linux"],
+    group: "Data, Infra & CI/CD",
+    items: [
+      "PostgreSQL", "Redis", "Prisma / Drizzle", "MongoDB",
+      "Docker", "Docker Compose", "GitHub Actions", "CI/CD pipelines",
+      "AWS EC2 / S3", "Cloudflare Workers / D1", "Yandex Cloud", "Linux",
+    ],
   },
 ] as const;
 
