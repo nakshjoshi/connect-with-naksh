@@ -4,19 +4,19 @@ import React from "react";
 const skillsData = [
   {
     title: "Languages",
-    items: ["Python", "Java", "C++", "JavaScript", "TypeScript","SQL", "Bash", "HTML/CSS"],
+    items: ["TypeScript", "JavaScript", "Python", "Java", "SQL", "Bash"],
   },
   {
-    title: "Frameworks & Libraries",
-    items: ["pandas", "NumPy", "React.js", "Node.js", "Express.js", "Linux", "Kafka", "Apache Airflow", "MLflow"],
+    title: "Backend & Web",
+    items: ["Node.js", "Fastify", "Express", "Hono", "FastAPI", "Bun", "React", "Next.js", "REST APIs", "OAuth2/WebAuthn"],
   },
   {
-    title: "Tools & Platforms",
-    items: ["AWS", "Digital Ocean", "Docker", "Git/GitHub", "Jupyter Notebook", "Tableau"],
+    title: "AI / LLM",
+    items: ["RAG", "LLM tool calling", "MCP", "ChromaDB", "LangChain", "OCR + vision LLMs", "MLflow", "Airflow", "Whisper/TTS"],
   },
   {
-    title: "Specializations",
-    items: ["System Design", "AI Automation", "AI Workflows", "RESTful APIs", "LLM Integration"],
+    title: "Data & Infra",
+    items: ["PostgreSQL", "Redis", "Prisma/Drizzle", "Docker", "GitHub Actions", "AWS (EC2/S3)", "Cloudflare Workers/D1", "Linux"],
   },
 ];
 

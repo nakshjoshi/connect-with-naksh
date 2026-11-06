@@ -31,13 +31,36 @@ function AboutMe() {
         <div className="space-y-4 lg:space-y-6 text-gray leading-relaxed text-sm lg:text-base order-2 lg:order-1">
 
           <p>
-          Hello!, I’m Nakshatra Joshi, a software developer focused on building intelligent, scalable, and user-centric digital systems. My work spans full-stack development, backend engineering, and generative AI, with a strong emphasis on performance, reliability, and real-world usability.  
+            Hey — I’m <span className="text-white">Nakshatra Joshi</span>, a software engineer
+            who lives mostly in the backend: typed APIs, queues, workers, migrations, and the
+            unglamorous reliability work that keeps them up. Lately that means Fastify and
+            Express services on PostgreSQL (Drizzle/Prisma), Redis-backed job pipelines,
+            Docker, GitHub Actions and AWS.
           </p>
           <p>
-          Currently pursuing a B.Tech in Computer Science & Design Engineering at RGIPT, I work on AI-driven applications, automation pipelines, and modern web platforms. I enjoy solving complex problems through clean code, efficient architectures, and continuous learning.
+            I also build with LLMs where they actually pay off — OCR + vision extraction over
+            real documents, RAG with measured accuracy instead of vibes, tool-calling agents
+            and MCP-driven test flows. At <span className="text-white">CargoFL</span> I
+            re-platformed a freight-procurement agent onto its own service and shipped a POD
+            extraction backend that has processed 7,000+ documents in production.
+          </p>
+          <p>
+            Currently in my final year of a B.Tech in Computer Science &amp; Design Engineering
+            at RGIPT. I care about clear data models, boring deploys, and code the next person
+            can read.
           </p>
 
-          
+          {/* Stack strip */}
+          <div className="flex flex-wrap gap-2 font-jet text-xs lg:text-sm pt-2">
+            {["TypeScript", "Python", "Fastify", "Next.js", "PostgreSQL", "Redis", "Docker", "AWS"].map((t) => (
+              <span
+                key={t}
+                className="border border-gray px-2 py-1 hover:border-primary hover:text-white transition"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
 
           <motion.a
             href="#contact"

@@ -181,7 +181,7 @@ const Navbar = () => {
                   Beyond Coding
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1imBR6LvURagGtJFWQzUHqutZG0rJVyo_/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1Q7C586eA26v6U0r7VkzAVOY4uPG2CbkC/view?usp=drive_link"
                   target="_blank"
                   className="block px-4 py-2 text-gray hover:text-white hover:bg-gray/10 transition"
                 >

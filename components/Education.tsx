@@ -1,11 +1,11 @@
 const educationData = [
   {
     name: "Rajiv Gandhi Institute of Petroleum Technology",
-    period: "Aug 2023 – Present",
+    period: "Aug 2023 – May 2027 (Expected)",
     degree: "B.Tech",
     branch: "Computer Science and Design Engineering",
     location: "Jais, Uttar Pradesh",
-    grade: "7.4 CGPA",
+    grade: "CPI 7.43",
   },
 
   {

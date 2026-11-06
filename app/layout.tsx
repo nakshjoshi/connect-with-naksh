@@ -18,8 +18,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Connect With NakshJoshi",
-  description: "Nakshatra Joshi's(NakshJoshi) Developer Portfolio",
+  title: "Nakshatra Joshi — Software Engineer (Backend & AI)",
+  description:
+    "Nakshatra Joshi (NakshJoshi) — software engineer building production backends and LLM pipelines with TypeScript, Python, Fastify, Next.js, PostgreSQL, Redis, Docker and AWS.",
+  keywords: [
+    "Nakshatra Joshi",
+    "NakshJoshi",
+    "software engineer",
+    "backend engineer",
+    "TypeScript",
+    "Python",
+    "Fastify",
+    "Next.js",
+    "PostgreSQL",
+    "RAG",
+    "MCP",
+    "AWS",
+  ],
+  openGraph: {
+    title: "Nakshatra Joshi — Software Engineer (Backend & AI)",
+    description:
+      "Production backends and LLM pipelines: TypeScript, Python, Fastify, Next.js, PostgreSQL, Redis, Docker, AWS.",
+    url: "https://nakshjoshi.in",
+    siteName: "nakshjoshi.in",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -1,7 +1,14 @@
 const beyondCoding = [
   {
+    title: "KodeKurrent Hackathon 2025 — Finalist",
+    subtitle: "250+ teams · converted to a paid internship",
+    description:
+      "Reached the finals of KodeKurrent 2025 from a field of 250+ teams, and converted the result into a paid AI Developer internship at Prodigal AI — selected from 40+ candidates.",
+  },
+
+  {
     title: "Training and Placement Student Coordinator",
-    subtitle: "Career Development Cell · TnP RGIPT",
+    subtitle: "Career Development Cell · TnP RGIPT · 2024 – Present",
     description:
       "Part of the Career Development Cell under Training and Placement department at RGIPT, coordinating placement activities and internship opportunities for students. Responsible for facilitating industry connections, managing recruitment drives, organizing pre-placement talks, and supporting students throughout the placement process. Collaborated with corporate partners and maintained placement databases to ensure successful career outcomes.",
   },

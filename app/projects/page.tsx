@@ -5,11 +5,27 @@ import SmallProjectCard from "@/components/SmallProjectCard";
 const bigProjects = [
   {
     title: "Swiftly",
-    desc: "Architected a distributed resume automation platform spanning an Express.js/Bun REST API, Next.js dashboard, WXT MV3 browser extension, and Dockerized LaTeX service. Engineered a multi-format AI resume parsing pipeline using Gemini 2.5 Flash, pdf-parse, Mammoth, and LaTeX regex cleaning to convert PDF, DOCX, and LaTeX resumes into schema-validated JSON. Designed a two-stage LLM autofill orchestration layer for semantic DOM extraction and Gemini mapping.",
+    desc: "Live resume-automation platform: Next.js dashboard, Bun/Express REST API and a WXT MV3 extension, with custom auth (no third-party provider) — JWT + refresh-token rotation, Google OAuth2 and WebAuthn passkeys. Gemini 2.5 Flash parses PDF/DOCX/LaTeX resumes into schema-validated JSON in normalised PostgreSQL via Prisma; a two-stage autofill maps extracted DOM field metadata to profile values with event-safe injection for React, Vue and Svelte forms. LaTeX compilation is isolated in a resource-limited Docker service (1 GB / 1 CPU, 60 s timeout, per-job temp dirs), with GitHub Actions CI/CD pushing SHA-tagged images to Docker Hub and deploying the pinned SHA over SSH to EC2 as health-checked, non-root containers. 100+ resumes processed.",
     image: "/swiftly.png",
-    tech: ["Next.js", "TypeScript", "Bun", "Express.js", "Prisma", "PostgreSQL", "JWT", "Gemini API", "Tailwind CSS"],
+    tech: ["Next.js", "TypeScript", "Bun", "Express.js", "Prisma", "PostgreSQL", "WebAuthn", "Gemini API", "Docker", "AWS EC2"],
     live: "https://swiftly.nakshjoshi.in",
     demo: "https://github.com/nakshjoshi/swiftly",
+  },
+  {
+    title: "Voice AI Agent",
+    desc: "Real-time mic → STT → LLM → TTS voice agent (Whisper-large-v3-turbo, GPT-OSS-20B, Orpheus TTS) behind an Express API. Provider-swappable between Groq and OpenAI via a single env var, with browser-speech fallback, rate-limit-aware sentence trimming and typed 429/502/503 error handling.",
+    image: "/voiceai.svg",
+    tech: ["React", "Node.js", "Express.js", "Groq", "Whisper", "Orpheus TTS", "OpenAI"],
+    live: "https://stt-llm-tts.onrender.com/",
+    demo: "https://github.com/nakshjoshi/stt-llm-tts",
+  },
+  {
+    title: "GoBrics Hackathon Platform",
+    desc: "Team build serving 10K+ users across India and Russia (1K+ concurrent). Built upload APIs with S3 integration for PDF submissions and a Redis-queued email service that respects Resend rate limits; co-designed Route 53 geolocation routing to localise Russian data on Yandex Cloud while sharing one S3-SDK codebase with AWS.",
+    image: "/gobrics.svg",
+    tech: ["TypeScript", "Express.js", "Turborepo", "PostgreSQL", "Prisma", "Redis", "AWS", "Yandex Cloud"],
+    live: "https://gobricshackathon.org/",
+    demo: "https://github.com/GO-BRICS/Indo-Russia-Website",
   },
   {
     title: "Brain Cache",
@@ -29,9 +45,9 @@ const bigProjects = [
   },
   {
     title: "Bilingual AI Chatbot",
-    desc: "Bilingual CRAG-based retrieval system using ChromaDB, SentenceTransformers, and Gemini 2.0 Flash, achieving 85%+ accurate query responses across 3300+ Indian schemes",
+    desc: "Hindi↔English CRAG retrieval system over 3,300+ Indian government schemes with ChromaDB, SentenceTransformers and Gemini 2.0 Flash — 85%+ answer accuracy on an LLM-as-judge eval. Metadata-enriched hybrid chunking (30K+ chunks) with Top-2 + sibling retrieval cuts token overhead, and intent detection routes eligibility, benefits and how-to-apply questions.",
     image: "/bilai.png",
-    tech: ["Python", "Streamlit", "ChromaDB", "Selenium", "Deep Translator"],
+    tech: ["Python", "ChromaDB", "SentenceTransformers", "Gemini API", "Streamlit", "Selenium", "Deep Translator"],
     live: "https://gov-slm-rag-chatbot.streamlit.app/",
     demo: "https://github.com/nakshjoshi/MySchemeMultiLinguaBot",
   },

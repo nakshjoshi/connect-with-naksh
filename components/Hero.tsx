@@ -11,7 +11,7 @@ function Hero() {
 
 
   function openResume(){
-    window.open('https://drive.google.com/file/d/1imBR6LvURagGtJFWQzUHqutZG0rJVyo_/view?usp=drive_link', '_blank')
+    window.open('https://drive.google.com/file/d/1Q7C586eA26v6U0r7VkzAVOY4uPG2CbkC/view?usp=drive_link', '_blank')
   }
   return (
     <>
@@ -25,16 +25,40 @@ function Hero() {
         <div className="w-full lg:w-1/2 flex flex-col gap-4 lg:gap-6 text-center lg:text-left">
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-fira text-white leading-snug">
-            <span className="block mb-2">Building intelligent systems with</span>
-            <span className="text-primary block mb-2">Software Engineering</span>
-            <span className="block">and</span>
-            <span className="text-primary">Generative AI</span>
+            <span className="block mb-2">I ship production</span>
+            <span className="text-primary block mb-2">backend systems</span>
+            <span className="block mb-2">and</span>
+            <span className="text-primary">LLM-powered pipelines</span>
           </h1>
 
           <p className="text-gray text-sm lg:text-base max-w-md font-fira mx-auto lg:mx-0">
-            Full Stack Developer & GenAI enthusiast turning ideas into smart digital solutions.
-
+            Software engineer working across TypeScript, Python and Go-to-prod infra —
+            Fastify/Next.js services on PostgreSQL, Redis queues, Docker and AWS, with
+            RAG, tool-calling and MCP wired in where they earn their keep.
           </p>
+
+          {/* Terminal-style quick facts */}
+          <div className="border border-gray text-xs lg:text-sm font-jet text-gray w-full max-w-md mx-auto lg:mx-0 text-left">
+            <div className="border-b border-gray px-3 py-1.5 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-primary block flex-shrink-0" />
+              <span className="text-white">naksh@portfolio:~$</span>
+              <span className="truncate">whoami</span>
+            </div>
+            <div className="px-3 py-2 space-y-1">
+              <p>
+                <span className="text-primary">{">"}</span> 7,000+ PODs processed in prod ·
+                7 carriers automated end-to-end
+              </p>
+              <p>
+                <span className="text-primary">{">"}</span> 10K+ users served on a
+                multi-region hackathon platform
+              </p>
+              <p>
+                <span className="text-primary">{">"}</span> available Jan 2027 — 6-month
+                internship or full-time
+              </p>
+            </div>
+          </div>
 
 
           <motion.button 
@@ -76,7 +100,7 @@ function Hero() {
               </a>
             </div>
             <div className="bg-background border border-gray px-2 lg:px-3 py-1 lg:py-2 flex items-center justify-center gap-2 text-gray text-xs lg:text-sm font-fira">
-              <span className="text-primary font-medium">SDE Intern</span>
+              <span className="text-primary font-medium">Software Engineer Intern</span>
               <span className="truncate">@ CargoFL</span>
             </div>
           </div>
