@@ -268,11 +268,13 @@ export const experience: Role[] = [
       "Built a chat-based freight-procurement agent on Fastify + React with PostgreSQL/Drizzle, implementing 10 tools for the end-to-end RFQ lifecycle across 7 carriers, plus background workers for stale-RFQ reminders and failed-job retries.",
       "Built the backend of an AI proof-of-delivery extraction platform: file-type routing into a Redis queue with a Postgres-backed job table, pulling documents from S3 for an OCR + vision-LLM extraction service — 7,000+ PODs processed in production.",
       "Extended line-item-to-total reconciliation across every file-type path, auto-clearing ~82% of production documents and routing the rest to manual review; implemented RBAC across 5 roles.",
+      "Built a write-only BYOK (bring-your-own-key) credential system: carrier API keys and secrets encrypted at rest in PostgreSQL and masked/redacted in the UI, so a stored credential can be used but never read back out.",
       "Shipped CSV bulk uploads, document-to-shipment linking and URL-persisted AND/OR filters in React/TypeScript/shadcn.",
       "Containerised the services and ran deploys through GitHub Actions CI/CD to AWS EC2; validated with MCP-driven Playwright E2E flows before client UAT.",
     ],
     stack: [
       "Fastify", "TypeScript", "React", "shadcn/ui", "PostgreSQL", "Drizzle", "Redis",
+      "BYOK credentials", "Encryption at rest", "RBAC",
       "Docker", "GitHub Actions", "CI/CD", "AWS EC2", "AWS S3",
       "Cloudflare Workers", "OCR + vision LLMs", "LLM tool calling", "MCP", "Playwright",
     ],
@@ -398,10 +400,10 @@ export const stack = [
 
 export const education = [
   {
-    name: "Rajiv Gandhi Institute of Petroleum Technology",
+    name: "Rajiv Gandhi Institute of Petroleum Technology, Bengaluru",
     qualification: "B.Tech, Computer Science & Design Engineering",
     period: "Aug 2023 — May 2027 (expected)",
-    detail: "CPI 7.43 · Jais, Uttar Pradesh",
+    detail: "CPI 7.43 · Bengaluru, Karnataka",
   },
   {
     name: "Doon International School",

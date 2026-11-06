@@ -48,7 +48,7 @@ export default function Writing() {
                     </span>
                   </div>
 
-                  <span className="mt-6 inline-flex items-center gap-2 font-jet text-label uppercase text-fg-muted transition-colors group-hover:text-accent">
+                  <span className="mt-6 inline-flex items-center gap-2 font-jet text-xs uppercase tracking-wider text-accent">
                     Read it
                     <span className="transition-transform duration-200 group-hover:translate-x-1">
                       ↗

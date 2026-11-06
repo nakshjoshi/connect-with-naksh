@@ -63,7 +63,7 @@ export default function Timeline() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-jet text-label uppercase">
+                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-jet text-xs uppercase tracking-wider">
                   {role.work.map((slug) => {
                     const study = caseStudies.find((c) => c.slug === slug);
                     if (!study) return null;
@@ -71,7 +71,7 @@ export default function Timeline() {
                       <Link
                         key={slug}
                         href={`/work/${slug}`}
-                        className="text-fg-muted transition-colors hover:text-accent"
+                        className="text-accent transition-opacity hover:opacity-80"
                       >
                         {study.name} →
                       </Link>
@@ -82,7 +82,7 @@ export default function Timeline() {
                       href={role.letter}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-fg-dim transition-colors hover:text-fg"
+                      className="text-fg-muted transition-colors hover:text-fg"
                     >
                       Letter ↗
                     </a>

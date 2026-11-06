@@ -13,7 +13,7 @@ export default function SiteFooter() {
           </span>
         </div>
 
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 font-jet text-label uppercase">
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 font-jet text-xs uppercase tracking-wider">
           <Link href="/work" className="text-fg-muted transition-colors hover:text-fg">
             Work
           </Link>

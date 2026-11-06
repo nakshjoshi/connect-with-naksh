@@ -23,8 +23,9 @@ export default function WorkPage() {
             Systems, written up honestly.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed">
-            Six case studies covering the constraint each system was built against, the
-            decisions that followed, and what I would change on a second pass.
+            {caseStudies.length} case studies covering the constraint each system was built
+            against, the decisions that followed, and what I would change on a second pass —
+            plus {archive.length} smaller builds.
           </p>
         </div>
       </header>
@@ -73,6 +74,11 @@ export default function WorkPage() {
                 </dl>
 
               </div>
+
+              <span className="mt-6 inline-flex items-center gap-2 font-jet text-xs uppercase tracking-wider text-accent">
+                Read case study
+                <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </span>
             </Link>
           ))}
         </div>
@@ -102,13 +108,14 @@ export default function WorkPage() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex gap-4 font-jet text-label uppercase">
+                <div className="mt-5 flex gap-2">
                   {p.live && (
                     <a
                       href={p.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-fg-muted transition-colors hover:text-accent"
+                      className="inline-flex items-center gap-1.5 border border-line-strong bg-surface-2 px-2.5 py-1.5
+                                 font-jet text-xs text-fg transition-colors hover:border-accent hover:text-accent"
                     >
                       Live ↗
                     </a>
@@ -118,7 +125,8 @@ export default function WorkPage() {
                       href={p.repo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-fg-dim transition-colors hover:text-fg"
+                      className="inline-flex items-center gap-1.5 border border-line px-2.5 py-1.5
+                                 font-jet text-xs text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
                     >
                       Source ↗
                     </a>

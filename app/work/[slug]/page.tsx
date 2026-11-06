@@ -53,7 +53,8 @@ export default async function CaseStudyPage({
 
           <Link
             href="/work"
-            className="font-jet text-label uppercase text-fg-dim transition-colors hover:text-fg"
+            className="inline-flex items-center gap-2 font-jet text-xs uppercase tracking-wider
+                       text-fg-muted transition-colors hover:text-accent"
           >
             ← All work
           </Link>
