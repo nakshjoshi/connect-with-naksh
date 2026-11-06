@@ -23,12 +23,29 @@ export default function Timeline() {
 
               {/* Left rail: when + where */}
               <div className="flex items-start gap-3 lg:flex-col lg:gap-3">
-                <div className="h-9 w-9 flex-shrink-0 border border-line bg-surface-2 p-1.5">
-                  <img
-                    src={role.logo}
-                    alt=""
-                    className="h-full w-full object-contain"
-                  />
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center border border-line bg-surface-2">
+                  {role.logo ? (
+                    <img
+                      src={role.logo}
+                      alt=""
+                      className="h-full w-full object-contain p-1.5"
+                    />
+                  ) : (
+                    <span className="font-jet text-[11px] tracking-tight text-accent">
+                      {(() => {
+                        const words = role.company
+                          .replace(/[^A-Za-z ]/g, "")
+                          .split(" ")
+                          .filter(Boolean);
+                        // One word -> first two letters; otherwise initials.
+                        return (
+                          words.length === 1
+                            ? words[0].slice(0, 2)
+                            : words.slice(0, 2).map((w) => w[0]).join("")
+                        ).toUpperCase();
+                      })()}
+                    </span>
+                  )}
                 </div>
                 <div className="font-jet text-[11px] leading-relaxed">
                   <p className="text-fg-muted">{role.period}</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 const QUERY = "(prefers-reduced-motion: reduce)";
 
@@ -20,11 +20,11 @@ function usePrefersReducedMotion() {
 }
 
 /**
- * The hero's focal point: one agent run, traced.
+ * The hero's focal point: an agent run, traced on a loop.
  *
- * It plays once on arrival and then rests at the committed state. Motion is a
- * hierarchy lever — spent continuously it stops meaning anything, so the run
- * is replayable on demand instead of looping forever.
+ * The loop pauses whenever the panel scrolls out of view or the tab is
+ * hidden, so it never animates where nobody is looking, and it holds at the
+ * finished state for anyone who prefers reduced motion.
  */
 
 type Stage = {
@@ -49,21 +49,56 @@ const LAST = STAGES.length - 1;
 export default function AgentRuntime() {
   const reduced = usePrefersReducedMotion();
   const [step, setStep] = useState(0);
+  const [runs, setRuns] = useState(7034);
+  const [inView, setInView] = useState(true);
+  const [tabVisible, setTabVisible] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   /* With reduced motion the run is simply shown already finished. */
   const active = reduced ? LAST : step;
   const done = active >= LAST;
+  const running = !reduced && !paused && inView && tabVisible;
+
+  /* Don't animate a panel nobody is looking at. */
+  useEffect(() => {
+    const el = panelRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), {
+      threshold: 0.15,
+    });
+    io.observe(el);
+
+    const onVisibility = () => setTabVisible(!document.hidden);
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, []);
 
   useEffect(() => {
-    if (done) return;
-    const timer = setTimeout(() => setStep((i) => i + 1), STAGES[active].dwell);
-    return () => clearTimeout(timer);
-  }, [active, done]);
+    if (!running) return;
 
-  const replay = () => setStep(0);
+    // Hold a beat on the finished state, then start the next run.
+    const delay = done ? 2200 : STAGES[active].dwell;
+    const timer = setTimeout(() => {
+      if (done) {
+        setRuns((r) => r + 1);
+        setStep(0);
+      } else {
+        setStep((i) => i + 1);
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [active, done, running]);
 
   return (
-    <div className="panel w-full">
+    <div ref={panelRef} className="panel w-full">
 
       {/* Head */}
       <div className="panel-head justify-between">
@@ -71,7 +106,11 @@ export default function AgentRuntime() {
           <span className="status-dot" />
           agent.runtime
         </span>
-        <span className="normal-case tracking-normal text-fg-dim">illustrative</span>
+        <span className="flex items-center gap-2 normal-case tracking-normal text-fg-dim">
+          <span>illustrative</span>
+          <span className="text-line-strong">·</span>
+          <span className="tabular-nums">run {runs.toLocaleString()}</span>
+        </span>
       </div>
 
       {/* Trace */}
@@ -132,13 +171,18 @@ export default function AgentRuntime() {
         <span className={done ? "text-accent" : "text-fg-dim"}>
           {done ? "loop exited · verified" : "running…"}
         </span>
-        <button
-          type="button"
-          onClick={replay}
-          className="text-fg-dim transition-colors hover:text-fg"
-        >
-          replay ↻
-        </button>
+
+        {/* Motion is opt-out, not forced */}
+        {!reduced && (
+          <button
+            type="button"
+            onClick={() => setPaused((v) => !v)}
+            aria-pressed={paused}
+            className="text-fg-dim transition-colors hover:text-fg"
+          >
+            {paused ? "resume ▶" : "pause ⏸"}
+          </button>
+        )}
       </div>
 
     </div>

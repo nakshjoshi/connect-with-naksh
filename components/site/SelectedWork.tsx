@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { archive, caseStudies, featuredSlugs } from "@/lib/content";
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 const featured = featuredSlugs
   .map((slug) => caseStudies.find((c) => c.slug === slug))
@@ -23,8 +24,8 @@ export default function SelectedWork() {
             room for numbers, and the eye tracks down one column. */}
         <div className="border-t border-line">
           {featured.map((study, i) => (
+            <Reveal key={study.slug}>
             <Link
-              key={study.slug}
               href={`/work/${study.slug}`}
               className="group block border-b border-line py-8 transition-colors duration-200 hover:bg-surface/50 lg:py-10"
             >
@@ -78,6 +79,7 @@ export default function SelectedWork() {
                 <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </span>
             </Link>
+            </Reveal>
           ))}
         </div>
 

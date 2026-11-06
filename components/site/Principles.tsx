@@ -1,5 +1,6 @@
 import { principles } from "@/lib/content";
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 export default function Principles() {
   return (
@@ -15,11 +16,13 @@ export default function Principles() {
 
         <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
           {principles.map((p) => (
-            <article key={p.n} className="bg-surface p-6 lg:p-8">
+            <Reveal key={p.n} className="bg-surface">
+            <article className="h-full p-6 lg:p-8">
               <span className="font-jet text-label text-accent">{p.n}</span>
               <h3 className="mt-4 text-lg font-medium">{p.title}</h3>
               <p className="mt-3 text-sm leading-relaxed">{p.body}</p>
             </article>
+            </Reveal>
           ))}
         </div>
 

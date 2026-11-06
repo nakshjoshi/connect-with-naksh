@@ -42,7 +42,7 @@ export type CaseStudy = {
   /** Headline numbers for this piece of work. */
   stats: { value: string; label: string }[];
   stack: string[];
-  links: { live?: string; repo?: string; letter?: string };
+  links: { live?: string; repo?: string; letter?: string; liveNote?: string };
   /** Nodes rendered in the pipeline diagram at the top of the case study. */
   pipeline: string[];
   problem: string;
@@ -119,6 +119,7 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Python", "ChromaDB", "SentenceTransformers", "Gemini 2.0 Flash", "Streamlit", "Selenium", "Deep Translator"],
     links: {
       live: "https://gov-slm-rag-chatbot.streamlit.app/",
+      liveNote: "free Streamlit host — may take a moment to wake",
       repo: "https://github.com/nakshjoshi/MySchemeMultiLinguaBot",
     },
     pipeline: ["query", "translate", "intent route", "hybrid retrieve", "correct", "answer"],
@@ -202,7 +203,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     stack: ["TypeScript", "Express.js", "Turborepo", "PostgreSQL", "Prisma", "Redis", "AWS", "Yandex Cloud", "Route 53", "Resend"],
     links: {
-      live: "https://gobricshackathon.org/",
+      /* gobricshackathon.org no longer resolves — the event domain is gone. */
       repo: "https://github.com/GO-BRICS/Indo-Russia-Website",
     },
     pipeline: ["Route 53", "region", "upload API", "S3 / Yandex", "Redis queue", "email"],
@@ -261,7 +262,9 @@ export const experience: Role[] = [
     role: "Software Engineer Intern",
     period: "May 2026 — Aug 2026",
     location: "Pune, Maharashtra · Hybrid",
-    logo: "https://media.licdn.com/dms/image/v2/D4E0BAQHLPpWK5ZRfIA/company-logo_200_200/B4EZWvKxORHcAM-/0/1742400591397/cargofl_logo?e=2147483647&v=beta&t=t4AT7EKbNuQ7p4cjGCVbzHlkjDvVxxYlMywOWcLe_ns",
+    /* No self-hosted mark available; Timeline falls back to a monogram.
+       The LinkedIn CDN URL that used to be here 403s on hotlink. */
+    logo: "",
     summary:
       "Two production systems: a chat-based freight-procurement agent and the backend of an AI document-extraction platform.",
     points: [
@@ -354,6 +357,10 @@ export type Article = {
   tags: readonly string[];
   /** A few section headings, to show the depth without the full TOC. */
   covers: readonly string[];
+  /** Locally hosted preview of the article page. */
+  cover?: string;
+  /** Shown in the preview's address bar. */
+  displayUrl?: string;
 };
 
 export const writing: Article[] = [
@@ -363,6 +370,8 @@ export const writing: Article[] = [
       "Your agent calls get_weather. But the model never runs that function, never sees your SDK, and has no idea it's inside a loop. So who's actually doing the work?",
     url: "https://medium.com/@connect.nakshjoshi/do-you-really-know-how-ai-agents-work-d6e7935c9384",
     published: "28 Oct 2026",
+    cover: "/article-cover.png",
+    displayUrl: "medium.com/@connect.nakshjoshi/do-you-really-know-how-ai-agents-work",
     shape: "12 parts · written as a Q&A",
     tags: ["Agentic AI", "Tool calling", "MCP"],
     covers: [

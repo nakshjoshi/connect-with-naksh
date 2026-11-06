@@ -5,21 +5,44 @@ import { useEffect, useState } from "react";
 import { profile } from "@/lib/content";
 
 const LINKS = [
-  { href: "/#work", label: "Work" },
-  { href: "/#approach", label: "Approach" },
-  { href: "/#experience", label: "Experience" },
+  { href: "/#work", label: "Work", section: "work" },
+  { href: "/#approach", label: "Approach", section: "approach" },
+  { href: "/#writing", label: "Writing", section: "writing" },
+  { href: "/#experience", label: "Experience", section: "experience" },
   { href: "/about", label: "About" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* Scroll-spy: highlight whichever section is currently in the reading zone. */
+  useEffect(() => {
+    const ids = LINKS.map((l) => l.section).filter(Boolean) as string[];
+    const nodes = ids
+      .map((id) => document.getElementById(id))
+      .filter((n): n is HTMLElement => Boolean(n));
+    if (!nodes.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-20% 0px -65% 0px", threshold: [0, 0.2, 0.6] },
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
   }, []);
 
   // Lock the page behind the mobile sheet
@@ -52,9 +75,18 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="font-jet text-sm text-fg-muted transition-colors hover:text-fg"
+              aria-current={l.section && active === l.section ? "true" : undefined}
+              className={`relative font-jet text-sm transition-colors hover:text-fg ${
+                l.section && active === l.section ? "text-fg" : "text-fg-muted"
+              }`}
             >
               {l.label}
+              <span
+                aria-hidden
+                className={`absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 ${
+                  l.section && active === l.section ? "w-full opacity-100" : "w-0 opacity-0"
+                }`}
+              />
             </Link>
           ))}
           <a

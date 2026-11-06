@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { metrics, profile } from "@/lib/content";
 import AgentRuntime from "./AgentRuntime";
+import CountUp from "./CountUp";
 
 export default function Hero() {
   return (
@@ -89,7 +90,7 @@ export default function Hero() {
                 ].join(" ")}
               >
                 <dt className="font-jet text-2xl tabular-nums text-fg lg:text-3xl">
-                  {m.value}
+                  <CountUp value={m.value} />
                 </dt>
                 <dd className="mt-1.5 text-xs leading-snug text-fg-muted">
                   {m.label}

@@ -108,6 +108,19 @@
 }
 
 @layer utilities {
+  /* Scroll-driven reveal. Visible by default; animates only where the
+     browser supports view() timelines and motion is welcome. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: riseIn linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 50%;
+      }
+    }
+  }
+
+
   /* Fades the engineering grid out toward the edges */
   .grid-fade {
     mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);

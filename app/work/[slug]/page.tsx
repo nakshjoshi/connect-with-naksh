@@ -105,6 +105,11 @@ export default async function CaseStudyPage({
                   Source ↗
                 </a>
               )}
+              {study.links.liveNote && (
+                <span className="self-center font-jet text-[11px] text-fg-dim">
+                  {study.links.liveNote}
+                </span>
+              )}
             </div>
           )}
 

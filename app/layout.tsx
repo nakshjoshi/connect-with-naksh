@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/site/Nav";
 import SiteFooter from "@/components/site/SiteFooter";
+import ScrollProgress from "@/components/site/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nakshjoshi.in"),
   title: "Nakshatra Joshi — Software Engineer (Backend & AI)",
   description:
     "Nakshatra Joshi (NakshJoshi) — software engineer building production backends and LLM pipelines with TypeScript, Python, Fastify, Next.js, PostgreSQL, Redis, Docker and AWS.",
@@ -66,6 +68,7 @@ export default function RootLayout({
         </a>
 
         <Nav />
+        <ScrollProgress />
 
         <main id="main" className="pt-16">
           {children}
