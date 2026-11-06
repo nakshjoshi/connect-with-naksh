@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { caseStudies, featuredSlugs } from "@/lib/content";
+import { archive, caseStudies, featuredSlugs } from "@/lib/content";
 import SectionHeader from "./SectionHeader";
 
 const featured = featuredSlugs
@@ -73,13 +73,35 @@ export default function SelectedWork() {
 
               </div>
 
-              <span className="mt-6 inline-flex items-center gap-2 font-jet text-label uppercase text-fg-dim transition-colors group-hover:text-accent">
+              <span className="mt-6 inline-flex items-center gap-2 font-jet text-xs uppercase tracking-wider text-accent">
                 Read case study
                 <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </span>
             </Link>
           ))}
         </div>
+
+        {/* The archive link people actually use: full width, at the point
+            where they have just finished reading and want more. */}
+        <Link
+          href="/work"
+          className="group mt-8 flex flex-col gap-4 border border-line bg-surface p-6 transition-colors
+                     hover:border-accent hover:bg-surface-2 sm:flex-row sm:items-center sm:justify-between lg:p-7"
+        >
+          <span>
+            <span className="block text-lg font-medium text-fg transition-colors group-hover:text-accent lg:text-xl">
+              See everything I&apos;ve built
+            </span>
+            <span className="mt-1.5 block text-sm text-fg-muted">
+              {caseStudies.length} full case studies and {archive.length} more shipped projects
+            </span>
+          </span>
+
+          <span className="btn-primary flex-shrink-0">
+            All work
+            <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </span>
+        </Link>
 
       </div>
     </section>

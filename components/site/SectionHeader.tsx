@@ -28,9 +28,14 @@ export default function SectionHeader({
         {action && (
           <Link
             href={action.href}
-            className="font-jet text-label uppercase text-fg-dim transition-colors hover:text-fg"
+            /* This is a real destination, so it gets a real affordance:
+               a bordered target at readable size, not dim micro-text. */
+            className="group inline-flex flex-shrink-0 items-center gap-2 border border-line-strong
+                       bg-surface px-3 py-1.5 font-jet text-xs uppercase tracking-wider text-fg
+                       transition-colors hover:border-accent hover:bg-surface-2 hover:text-accent"
           >
-            {action.text} →
+            {action.text}
+            <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </Link>
         )}
       </div>
