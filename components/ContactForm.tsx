@@ -1,107 +1,93 @@
 "use client"
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-const buttonVariants = {
-  hover: { scale: 1.05, transition: { duration: 0.2 } },
-  tap: { scale: 0.95, transition: { duration: 0.1 } }
-};
+type Status = "idle" | "sending" | "sent" | "error";
+
+const field =
+  "w-full border border-line bg-canvas px-3 py-2.5 text-sm text-fg placeholder-fg-dim " +
+  "transition-colors focus:border-accent focus:outline-none";
 
 const ContactForm = () => {
+  const [status, setStatus] = useState<Status>("idle");
 
+  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const adminTemplate = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ADMIN;
+  const userTemplate = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_USER;
+  const pubKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-  const [buttonText, setButtonText] = useState("Send")
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
 
+    if (!serviceID || !adminTemplate || !userTemplate || !pubKey) {
+      console.error("EmailJS env vars missing");
+      setStatus("error");
+      return;
+    }
 
-  const serviceID: string | undefined = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-  const adminTemplate = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ADMIN
-  const userTemplate = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_USER
-  const pubKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    setStatus("sending");
 
-  if (!serviceID || !adminTemplate || !userTemplate || !pubKey) {
-   console.error("Env missing");
+    try {
+      await emailjs.sendForm(serviceID, adminTemplate, form, pubKey);
+      await emailjs.sendForm(serviceID, userTemplate, form, pubKey);
+      form.reset();
+      setStatus("sent");
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (err) {
+      console.error("Failed to send message", err);
+      setStatus("error");
+    }
   }
 
-
-  async function handleSubmit(event:React.FormEvent<HTMLFormElement>){
-    event.preventDefault()
-    setButtonText("Sending...")
-    const form = event.target as HTMLFormElement
-
-    await emailjs.sendForm(serviceID!, adminTemplate!, form, pubKey)
-    setButtonText("Sent")
-    await emailjs.sendForm(serviceID!, userTemplate!, form, pubKey)
-
-    form.reset()
-    setButtonText("Send")
-
-  }
-
-
-
-
+  const label = {
+    idle: "Send message",
+    sending: "Sending…",
+    sent: "Sent ✓",
+    error: "Try again",
+  }[status];
 
   return (
-    <div className="bg-background border border-gray p-4 lg:p-8 w-full font-fira">
+    <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
 
-      <form id="myForm"  className="flex flex-col gap-3 lg:gap-4" onSubmit={handleSubmit}>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <input type="text" name="name" required placeholder="Name" className={field} />
+        <input type="email" name="email" required placeholder="Email" className={field} />
+      </div>
 
-        {/* Row: Name + Email */}
-        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+      <input type="text" name="subject" required placeholder="Subject" className={field} />
 
-          {/* Name */}
-          <input
-            type="text"
-            name="name"
-            required
-            placeholder="Name"
-            className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray focus:outline-none focus:border-primary text-sm lg:text-base"
-          />
+      <textarea
+        name="message"
+        required
+        rows={5}
+        placeholder="What are you building?"
+        className={`${field} min-h-[120px] resize-none`}
+      />
 
-          {/* Email */}
-          <input
-            type="email"
-            required
-            name="email"
-            placeholder="Email"
-            className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray focus:outline-none focus:border-primary text-sm lg:text-base"
-          />
-
-        </div>
-
-        {/* Subject */}
-        <input
-          type="text"
-          name="subject"
-          required
-          placeholder="Subject"
-          className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray focus:outline-none focus:border-primary text-sm lg:text-base"
-        />
-
-        {/* Message */}
-        <textarea
-          placeholder="Message"
-          name="message"
-          required
-          rows={4}
-          className="w-full bg-transparent border border-gray px-3 py-2 text-white placeholder-gray resize-none focus:outline-none focus:border-primary text-sm lg:text-base min-h-[100px]"
-        ></textarea>
-
-        {/* Button */}
-        <motion.button
+      <div className="flex flex-wrap items-center gap-4">
+        <button
           type="submit"
-          className="border border-primary text-white px-4 py-2 w-full sm:w-fit hover:bg-primary transition text-sm lg:text-base"
-          whileTap="tap"
-          whileHover="hover"
-          variants={buttonVariants}
+          disabled={status === "sending"}
+          className="btn-primary disabled:opacity-60"
         >
-          {buttonText}
-        </motion.button>
+          {label}
+        </button>
 
-      </form>
-    </div>
+        {status === "error" && (
+          <span className="font-jet text-[11px] text-danger">
+            Couldn&apos;t send — email me directly instead.
+          </span>
+        )}
+        {status === "sent" && (
+          <span className="font-jet text-[11px] text-accent">
+            I&apos;ll get back to you shortly.
+          </span>
+        )}
+      </div>
+
+    </form>
   );
 };
 

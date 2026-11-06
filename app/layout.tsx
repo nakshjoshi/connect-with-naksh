@@ -3,9 +3,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import SocialBar from "@/components/Socials";
-import Footer from "@/components/Footer";
+import Nav from "@/components/site/Nav";
+import SiteFooter from "@/components/site/SiteFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,33 +50,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className="bg-canvas">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
 
-        <Analytics/>
-        <SpeedInsights/>
+        <Analytics />
+        <SpeedInsights />
 
-        {/* Fixed Navbar */}
-        <div className="fixed top-0 left-0 right-0 z-50">
-          <Navbar />
-        </div>
+        {/* Skip link — first tab stop on every page */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60]
+                     focus:bg-accent focus:px-4 focus:py-2 focus:font-jet focus:text-sm focus:text-canvas"
+        >
+          Skip to content
+        </a>
 
-        {/* Fixed Social Bar - Hidden on mobile */}
-        <div className="hidden lg:block">
-          <SocialBar />
-        </div>
+        <Nav />
 
-        {/* Main Content Area - Responsive margin */}
-        <div className="lg:ml-16 pt-16 lg:pt-20"> {/* responsive margins for mobile/desktop */}
+        <main id="main" className="pt-16">
           {children}
-        </div>
+        </main>
 
-        {/* Footer - Responsive margin */}
-        <div className="lg:ml-16">
-          <Footer />
-        </div>
+        <SiteFooter />
+
       </body>
     </html>
   );

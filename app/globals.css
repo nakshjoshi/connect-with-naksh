@@ -1,67 +1,126 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Fira+Code&family=Source+Code+Pro&family=Inconsolata&family=Ubuntu+Mono&family=Red+Hat+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-jet;
-}
-
-/* Mobile optimizations */
-@layer utilities {
-  .text-responsive-xs { font-size: 0.7rem; line-height: 1rem; }
-  .text-responsive-sm { font-size: 0.8rem; line-height: 1.125rem; }
-  .text-responsive-base { font-size: 0.875rem; line-height: 1.25rem; }
-  .text-responsive-lg { font-size: 1rem; line-height: 1.5rem; }
-  .text-responsive-xl { font-size: 1.125rem; line-height: 1.75rem; }
-  
-  /* Ensure smooth scrolling */
+@layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
-  
-  /* Fix mobile viewport issues */
-  @media screen and (max-width: 768px) {
-    html {
-      -webkit-text-size-adjust: 100%;
-    }
-    
-    body {
-      overflow-x: hidden;
+
+  body {
+    @apply bg-canvas text-fg font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Prose defaults: muted body, bright headings */
+  p {
+    @apply text-fg-muted;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-fg;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: #4FDD93;
+    color: #0A0C0E;
+  }
+
+  /* One visible focus style for the whole site */
+  :focus-visible {
+    outline: 2px solid #4FDD93;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
-  
-  /* Mobile touch improvements */
-  @media (hover: none) and (pointer: coarse) {
-    .hover\:bg-primary:hover {
-      background-color: transparent;
-    }
-    
-    .hover\:text-primary:hover {
-      color: #ABB2BF;
-    }
-    
-    .hover\:border-primary:hover {
-      border-color: #ABB2BF;
-    }
+}
+
+@layer components {
+  /* ── Layout ─────────────────────────────────────────────── */
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .section {
+    @apply py-20 lg:py-28;
+  }
+
+  /* ── Eyebrow / section label ────────────────────────────── */
+  .eyebrow {
+    @apply font-jet text-label uppercase text-fg-dim;
+  }
+
+  /* ── Panels: the control-room surface ───────────────────── */
+  .panel {
+    @apply border border-line bg-surface;
+  }
+
+  .panel-head {
+    @apply flex items-center gap-2 border-b border-line px-4 py-2.5 font-jet text-label uppercase text-fg-dim;
+  }
+
+  /* Interactive panel — the border is the only thing that moves */
+  .panel-link {
+    @apply panel transition-colors duration-200 hover:border-line-strong;
+  }
+
+  /* ── Data chips ─────────────────────────────────────────── */
+  .chip {
+    @apply inline-flex items-center gap-1.5 border border-line bg-surface-2 px-2 py-1
+           font-jet text-[11px] leading-none text-fg-muted;
+  }
+
+  /* ── Buttons ────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           font-jet text-sm leading-none transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-canvas hover:bg-[#6BE8A7];
+  }
+
+  .btn-ghost {
+    @apply btn border border-line text-fg hover:border-line-strong hover:bg-surface;
+  }
+
+  /* ── Status dot ─────────────────────────────────────────── */
+  .status-dot {
+    @apply block h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot;
+  }
+
+  /* ── Rules ──────────────────────────────────────────────── */
+  .hairline {
+    @apply h-px w-full bg-line;
   }
 }
 
-/* Custom scrollbar for webkit browsers */
-::-webkit-scrollbar {
-  width: 8px;
+@layer utilities {
+  /* Fades the engineering grid out toward the edges */
+  .grid-fade {
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 35%, transparent 100%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #282C33;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #48DD7E;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ABB2BF;
-}
+/* Scrollbar tuned to the new ramp */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0A0C0E; }
+::-webkit-scrollbar-thumb { background: #232930; border: 2px solid #0A0C0E; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #333C45; }
