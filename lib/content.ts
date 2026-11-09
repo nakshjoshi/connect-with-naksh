@@ -262,9 +262,9 @@ export const experience: Role[] = [
     role: "Software Engineer Intern",
     period: "May 2026 — Aug 2026",
     location: "Pune, Maharashtra · Hybrid",
-    /* No self-hosted mark available; Timeline falls back to a monogram.
-       The LinkedIn CDN URL that used to be here 403s on hotlink. */
-    logo: "",
+    /* Self-hosted so nothing depends on a third-party CDN staying up.
+       The LinkedIn URL that used to be here 403s on hotlink. */
+    logo: "/cargofl.png",
     summary:
       "Two production systems: a chat-based freight-procurement agent and the backend of an AI document-extraction platform.",
     points: [
@@ -289,7 +289,7 @@ export const experience: Role[] = [
     role: "AI Developer Intern",
     period: "Jun 2025 — Aug 2025",
     location: "Delhi · Remote",
-    logo: "pai.jpg",
+    logo: "/pai.jpg",
     summary:
       "RAG content-generation pipelines with human-in-the-loop approval, and the MLOps plumbing to swap models without redeploying.",
     points: [
@@ -310,7 +310,7 @@ export const experience: Role[] = [
     role: "Vocational Trainee — Data Visualisation",
     period: "Jul 2024",
     location: "On-site",
-    logo: "tsl.png",
+    logo: "/tsl.png",
     summary:
       "Dashboarding for sales analysis, and the data pipelines feeding it.",
     points: [

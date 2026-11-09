@@ -9,8 +9,15 @@ export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
 }
 
-export default async function OgImage({ params }: { params: { slug: string } }) {
-  const study = getCaseStudy(params.slug);
+export default async function OgImage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // params is a Promise in Next 16 — awaiting it is what makes each
+  // case study get its own card instead of a shared empty fallback.
+  const { slug } = await params;
+  const study = getCaseStudy(slug);
 
   return new ImageResponse(
     (
